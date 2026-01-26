@@ -17,39 +17,137 @@
             --silk-cream: #fdfaf5;
             --crimson: #E60000;
             --royal-gold: #D4AF37;
-            --luminous-gold: #ffdf00;
             --void-black: #0a0a0a;
         }
 
         * { box-sizing: border-box; }
 
         body {
-            background-color: var(--silk-cream);
-            color: var(--void-black);
+            background-color: #fdfaf5; /* Fallback silk cream */
+            color: #0a0a0a;
             font-family: 'Montserrat', sans-serif;
             margin: 0; padding: 0;
             overflow-x: hidden;
-            /* LUMINOUS SPARKLE OVERLAY */
-            background-image: url('https://www.transparenttextures.com/patterns/dust.png'), radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, var(--silk-cream) 70%);
         }
+
+        /* --- THE WOW ENTRY GATE (Visible Immediately) --- */
+        #gate { 
+            height: 100vh; width: 100%; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; 
+            background-color: #0a0a0a; text-align: center; 
+            position: fixed; top: 0; left: 0; z-index: 9999;
+        }
+
+        .gate-title { 
+            font-family: 'Playfair Display', serif; font-size: clamp(2rem, 10vw, 5rem); 
+            color: #D4AF37; text-transform: uppercase; letter-spacing: 15px; 
+            text-shadow: 0 0 25px rgba(212, 175, 55, 0.6); margin: 0;
+        }
+        .gate-sub { color: #E60000; letter-spacing: 8px; font-size: 0.8rem; margin-top: 20px; font-weight: 900; }
+        
+        .code-input { 
+            background: none; border: none; border-bottom: 2px solid #D4AF37; 
+            color: #fff; padding: 15px; text-align: center; font-size: 1.8rem; 
+            width: 320px; outline: none; margin: 50px 0; letter-spacing: 12px;
+        }
+        .btn-auth { 
+            border: 2px solid #E60000; color: #E60000; padding: 15px 50px; 
+            text-transform: uppercase; letter-spacing: 3px; cursor: pointer; 
+            background: none; transition: 0.5s; font-weight: 900;
+        }
+        .btn-auth:hover { background: #E60000; color: white; box-shadow: 0 0 30px #E60000; }
+
+        /* --- DASHBOARD SECTION --- */
+        #dashboard { display: none; opacity: 0; transition: opacity 1s ease-in; }
+        
+        .os-header { 
+            background: #0a0a0a; padding: 60px 20px; text-align: center; 
+            border-bottom: 5px solid #D4AF37;
+        }
+        .os-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 5vw, 2.5rem); text-transform: uppercase; letter-spacing: 10px; color: #fff; margin: 0; }
+        .os-header span { font-family: 'Great Vibes', cursive; color: #D4AF37; font-size: 2.2rem; display: block; margin-top: -5px; }
 
         .container { width: 100%; max-width: 1200px; margin: auto; padding: 0 20px; }
 
-        /* --- THE WOW ENTRY GATE --- */
-        #gate { 
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            background: var(--void-black); text-align: center; position: relative; overflow: hidden;
+        .welcome-section { padding: 80px 0; border-bottom: 1px solid #eee; }
+        .welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        
+        .img-frame { border: 1px solid #D4AF37; padding: 15px; background: white; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
+        .img-frame img { width: 100%; display: block; }
+        
+        .text-box h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #E60000; text-transform: uppercase; margin-bottom: 20px; }
+        .text-box p { font-size: 1.1rem; line-height: 1.8; color: #444; }
+
+        /* MODULES */
+        .section-header { font-family: 'Playfair Display', serif; font-size: 3rem; color: #D4AF37; text-align: center; margin: 100px 0 60px; text-transform: uppercase; letter-spacing: 10px; }
+        .module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px; margin-bottom: 100px; }
+
+        .module-card { perspective: 1500px; height: 680px; }
+        .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
+        .module-card:hover .card-inner { transform: rotateY(180deg); }
+        
+        .card-front, .card-back { 
+            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; 
+            background: white; border: 1px solid #ddd; padding: 20px; border-radius: 2px;
         }
-        .gate-title { 
-            font-family: 'Playfair Display', serif; font-size: clamp(2rem, 10vw, 5rem); 
-            color: var(--royal-gold); text-transform: uppercase; letter-spacing: 15px; 
-            text-shadow: 0 0 25px var(--royal-gold); margin: 0;
+        .card-front { border-top: 8px solid #D4AF37; }
+        .card-front img { width: 100%; height: 80%; object-fit: cover; }
+        .card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #0a0a0a; margin-top: 20px; text-transform: uppercase; }
+
+        .card-back { 
+            transform: rotateY(180deg); display: flex; flex-direction: column; text-align: left; padding: 30px; border-top: 8px solid #E60000;
+            overflow-y: auto;
         }
-        .gate-sub { color: var(--crimson); letter-spacing: 8px; font-size: 0.8rem; margin-top: 20px; font-weight: 900; }
-        .code-input { 
-            background: none; border: none; border-bottom: 2px solid var(--royal-gold); 
-            color: #fff; padding: 15px; text-align: center; font-size: 1.8rem; 
-            width: 350px; outline: none; margin: 40px 0; letter-spacing: 12px;
-        }
-        .btn-auth { 
-            border: 2px solid var(--royal-gold); color: var(--royal-gold); padding: 15px 50px;
+        .card-back h4 { font-family: 'Playfair Display', serif; color: #8B0000; font-size: 1.6rem; margin: 0 0 10px; text-transform: uppercase; }
+        .card-back p { font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 10px; }
+
+        .btn-act { display: block; text-align: center; padding: 15px; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; transition: 0.4s; margin-top: 10px; }
+        .btn-gpt { background: #E60000; color: white; }
+        .btn-saas { background: #0a0a0a; color: #D4AF37; border: 1px solid #D4AF37; }
+
+        .disclaimer { background: #0a0a0a; color: #555; padding: 100px 40px; text-align: center; border-top: 5px solid #D4AF37; }
+
+        @media (max-width: 768px) { .welcome-grid { grid-template-columns: 1fr; text-align: center; } .module-card { height: 620px; } }
+    </style>
+</head>
+<body>
+
+    <!-- SECURE GATE (Always Visible First) -->
+    <div id="gate">
+        <h1 class="gate-title">Signature 7</h1>
+        <p class="gate-sub">THE SOVEREIGN IMPERIUM | GJ GROW & GLOW</p>
+        <input type="password" id="accessCode" class="code-input" placeholder="PASSKEY">
+        <button class="btn-auth" onclick="unlock()">Authenticate</button>
+    </div>
+
+    <!-- MAIN OS -->
+    <div id="dashboard">
+        <header class="os-header">
+            <h1>The Operating System</h1>
+            <span>Signature 7™ - AI BOSS | The Sovereign Imperium</span>
+        </header>
+
+        <div class="container">
+            <!-- FOUNDER WELCOME -->
+            <section class="welcome-section welcome-grid">
+                <div class="img-frame" data-aos="fade-right">
+                    <img src="https://i.postimg.cc/wTxtRNmZ/skool-jan26.jpg" alt="Welcome">
+                </div>
+                <div class="text-box" data-aos="fade-left">
+                    <h2>The Imperium is Open</h2>
+                    <p>Congratulations. You’ve just stepped into the only space where branding meets automation. I’m Gwen, the founder of Signature 7™. I created this system to give you the tools and confidence to build an iconic empire that scales while you lead.</p>
+                </div>
+            </section>
+
+            <!-- ABOUT FOUNDER -->
+            <section class="welcome-section welcome-grid" style="direction: rtl;">
+                <div class="img-frame" data-aos="fade-left">
+                    <img src="https://i.postimg.cc/wvHx8K5G/skool-jan26.jpg" alt="Founder">
+                </div>
+                <div class="text-box" style="direction: ltr;" data-aos="fade-right">
+                    <h2>Meet Your Founder</h2>
+                    <p>Built from trust and loyalty with my friend and mentor Katie, Signature 7™ solves the problem of content chaos once and for all. We help you command your market with luxury branding and AI-powered tools that make business magnetic.</p>
+                </div>
+            </section>
+
+            <h2 class="section-header">The 7 Signatures</h2>
