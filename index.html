@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GJ GROW & GLOW | THE SOVEREIGN IMPERIUM</title>
+    <title>Signature 7™ | THE SOVEREIGN IMPERIUM</title>
     
     <!-- Premium Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;600;900&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -30,34 +30,40 @@
             overflow-x: hidden;
         }
 
-        /* --- THE ENTRY GATE --- */
+        /* --- THE WOW ENTRY GATE --- */
         #gate { 
             height: 100vh; width: 100%; display: flex; flex-direction: column; 
             justify-content: center; align-items: center; 
             background-color: var(--void-black); text-align: center; 
             position: fixed; top: 0; left: 0; z-index: 9999;
         }
+        #gate::after {
+            content: ''; position: absolute; width: 200%; height: 200%;
+            background-image: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
 
         .gate-title { 
-            font-family: 'Playfair Display', serif; font-size: clamp(2rem, 10vw, 5rem); 
+            font-family: 'Playfair Display', serif; font-size: clamp(2rem, 10vw, 4.5rem); 
             color: var(--royal-gold); text-transform: uppercase; letter-spacing: 15px; 
-            text-shadow: 0 0 25px rgba(212, 175, 55, 0.6); margin: 0;
+            z-index: 2; text-shadow: 0 0 25px var(--royal-gold); margin: 0;
         }
-        .gate-sub { color: var(--crimson); letter-spacing: 8px; font-size: 0.8rem; margin-top: 20px; font-weight: 900; }
+        .gate-sub { color: var(--crimson); letter-spacing: 8px; font-size: 0.8rem; margin-top: 20px; font-weight: 900; z-index: 2; }
         
         .code-input { 
             background: none; border: none; border-bottom: 2px solid var(--royal-gold); 
             color: #fff; padding: 15px; text-align: center; font-size: 1.8rem; 
-            width: 320px; outline: none; margin: 50px 0; letter-spacing: 12px;
+            width: 320px; outline: none; margin: 50px 0; letter-spacing: 12px; z-index: 2;
         }
-        .btn-auth { 
-            border: 2px solid var(--crimson); color: var(--crimson); padding: 15px 50px; 
-            text-transform: uppercase; letter-spacing: 3px; cursor: pointer; 
-            background: none; transition: 0.5s; font-weight: 900;
-        }
-        .btn-auth:hover { background: var(--crimson); color: white; }
 
-        /* --- MAIN OS INTERFACE (Hidden) --- */
+        .btn-auth { 
+            border: 2px solid var(--royal-gold); color: var(--royal-gold); padding: 18px 60px; 
+            text-transform: uppercase; letter-spacing: 5px; cursor: pointer; background: none; 
+            transition: 0.5s; font-weight: 700; z-index: 2;
+        }
+        .btn-auth:hover { background: var(--royal-gold); color: #000; box-shadow: 0 0 40px var(--royal-gold); }
+
+        /* --- MAIN OS INTERFACE --- */
         #dashboard { display: none; }
         
         .os-header { 
@@ -67,8 +73,9 @@
         .os-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 5vw, 2.5rem); text-transform: uppercase; letter-spacing: 10px; color: #fff; margin: 0; }
         .os-header span { font-family: 'Great Vibes', cursive; color: var(--royal-gold); font-size: 2.2rem; display: block; margin-top: -5px; }
 
-        .container { width: 100%; max-width: 1200px; margin: auto; padding: 0 20px; }
+        .container { width: 100%; max-width: 1200px; margin: auto; padding: 80px 20px; }
 
+        /* WELCOME SECTIONS */
         .welcome-section { padding: 80px 0; border-bottom: 1px solid #eee; }
         .welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         
@@ -78,11 +85,14 @@
         .text-box h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--crimson); text-transform: uppercase; margin-bottom: 20px; }
         .text-box p { font-size: 1.1rem; line-height: 1.8; color: #444; }
 
-        /* MODULE GRID */
-        .section-header { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--royal-gold); text-align: center; margin: 100px 0 60px; text-transform: uppercase; letter-spacing: 10px; }
+        /* VIDEO */
+        .video-container { width: 100%; max-width: 800px; margin: 50px auto; border: 2px solid var(--royal-gold); padding: 10px; background: #000; }
+
+        /* MODULES */
+        .section-header { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--royal-gold); text-align: center; margin: 120px 0 60px; text-transform: uppercase; letter-spacing: 10px; }
         .module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px; margin-bottom: 100px; }
 
-        /* 3D FLIP CARD */
+        /* 3D FLIP CARDS */
         .module-card { perspective: 1500px; height: 680px; }
         .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
         .module-card:hover .card-inner { transform: rotateY(180deg); }
@@ -93,13 +103,13 @@
         }
         .card-front { border-top: 8px solid var(--royal-gold); }
         .card-front img { width: 100%; height: 80%; object-fit: cover; }
-        .card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--void-black); margin-top: 20px; text-transform: uppercase; }
+        .card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #0a0a0a; margin-top: 20px; text-transform: uppercase; }
 
         .card-back { 
             transform: rotateY(180deg); display: flex; flex-direction: column; text-align: left; padding: 30px; border-top: 8px solid var(--crimson);
             overflow-y: auto;
         }
-        .card-back h4 { font-family: 'Playfair Display', serif; color: var(--imperial-red); font-size: 1.6rem; margin: 0 0 10px; text-transform: uppercase; }
+        .card-back h4 { font-family: 'Playfair Display', serif; color: #8B0000; font-size: 1.6rem; margin: 0 0 10px; text-transform: uppercase; }
         .card-back p { font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 10px; }
 
         .btn-act { display: block; text-align: center; padding: 15px; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; transition: 0.4s; margin-top: 10px; }
@@ -108,6 +118,7 @@
 
         .disclaimer { background: var(--void-black); color: #555; padding: 100px 40px; text-align: center; border-top: 5px solid var(--royal-gold); }
 
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @media (max-width: 768px) { .welcome-grid { grid-template-columns: 1fr; text-align: center; } .module-card { height: 620px; } }
     </style>
 </head>
@@ -129,61 +140,77 @@
         </header>
 
         <div class="container">
-            <!-- WELCOME -->
+            
+            <!-- SECTION: WELCOME & VIDEO -->
             <section class="welcome-section">
                 <center>
-                    <h2 style="font-family: 'Playfair Display'; font-size: 3rem; color: var(--crimson); text-transform: uppercase;">Welcome Architect</h2>
-                    <div style="width: 80px; height: 3px; background: var(--royal-gold); margin: 20px auto;"></div>
-                    <p style="max-width: 800px; font-size: 1.2rem; line-height: 1.8; color: #444;">
-                        Congratulations, you’ve just stepped into the only space where high-end branding meets industrial automation. You are here to command your market.
+                    <h2 style="font-family: 'Playfair Display'; font-size: 2.8rem; color: var(--crimson);">✨ Welcome to Signature 7™ ✨</h2>
+                    <p style="max-width: 800px; font-size: 1.2rem; line-height: 1.8; color: #444; margin-top: 20px;">
+                        Congratulations, Architect. You’ve just stepped into the only space where high-end branding meets industrial automation. I’m Gwen, and I created this Imperium to give you the clarity, tools, and confidence to command your market.
                     </p>
                     
-                    <!-- LOOM VIDEO EMBED -->
-                    <div style="margin-top: 50px; border: 2px solid var(--royal-gold); padding: 10px; background: #000; max-width: 800px;">
-                        <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/536837ecd5cb463ca593c983deea8bb1?hide_owner=true&hide_share=true&hide_title=true&hide_embed_top_bar=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+                    <div class="video-container" data-aos="zoom-in">
+                        <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/536837ecd5cb463ca593c983deea8bb1?hide_owner=true&hide_share=true&hide_title=true&hide_embed_top_bar=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
                     </div>
                 </center>
             </section>
 
-            <!-- FOUNDER SECTION -->
+            <!-- SECTION: FOUNDER STORY -->
             <section class="welcome-section welcome-grid">
                 <div class="img-frame" data-aos="fade-right">
-                    <img src="https://i.postimg.cc/wTxtRNmZ/skool-jan26.jpg" alt="Founder">
+                    <img src="https://i.postimg.cc/wTxtRNmZ/skool-jan26.jpg" alt="Welcome to the Empire">
                 </div>
                 <div class="text-box" data-aos="fade-left">
-                    <h2>Your Founder</h2>
-                    <p>I’m Gwen, the founder of Signature 7™, here with my trusting mentor and friend, Katie. We built this framework to transform scattered brands into iconic empires.</p>
-                    <p>⚡ My philosophy: Your brand should feel unforgettable, your systems should feel effortless, and your offers should feel irresistible.</p>
+                    <h2>About Your Founder</h2>
+                    <p>I’m Gwen, the founder of Signature 7™, with my trusting mentor and friend, Katie. We built this framework to transform scattered brands into iconic empires. After years of watching entrepreneurs get lost in content chaos, we built the AI BOSS to solve the problem once and for all.</p>
+                    <p style="border-left: 3px solid var(--royal-gold); padding-left: 20px; font-style: italic;">"Your brand should feel unforgettable, your systems should feel effortless, and your offers should feel irresistible."</p>
+                </div>
+            </section>
+
+            <!-- SECTION: ALPHA ERA -->
+            <section class="welcome-section welcome-grid" style="direction: rtl;">
+                <div class="img-frame" data-aos="fade-left">
+                    <img src="https://i.postimg.cc/fbHsF3LK/skool-jan26.jpg" alt="Alpha Era">
+                </div>
+                <div class="text-box" style="direction: ltr;" data-aos="fade-right">
+                    <h2>The Alpha Era</h2>
+                    <p>Born from real experience. No fluff. No filters. Together with my friend Ste, we created mentors in machine form. Coded with unapologetic energy and tactical precision. Build empires, no excuses.</p>
+                    <p style="color: var(--royal-gold); font-weight: bold; letter-spacing: 2px;">✦ RAGNAR ✦ MAX ✦ ZANE ✦ ATLAS ✦ GRAMPA JO</p>
                 </div>
             </section>
 
             <h2 class="section-header">The 7 Signatures</h2>
 
             <div class="module-grid">
-                <!-- SIGNATURE ONE -->
+                
+                <!-- PILLAR 1: CLARITY CORE -->
                 <div class="module-card" data-aos="zoom-in">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="https://i.postimg.cc/x8sJsjmQ/skool-jan26.jpg" alt="Signature One">
+                            <img src="https://i.postimg.cc/x8sJsjmQ/skool-jan26.jpg" alt="Signature 1">
                             <h3>01. Clarity Core</h3>
                         </div>
                         <div class="card-back">
                             <h4>Clarity Core</h4>
-                            <p><b>Resolves:</b> Niche confusion and weak positioning. Architect a brand frequency that attracts elite buyers instantly.</p>
-                            <p><b>01:</b> <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" style="color:var(--crimson);">Download Workbook</a></p>
-                            <p><b>02:</b> <a href="https://www.canva.com/design/DAGwKW1nygc/hqIGNGpD1PIViDGtaF1Igg/edit" target="_blank" style="color:var(--crimson);">Open Resource Doc</a></p>
-                            <a href="https://chatgpt.com/" target="_blank" class="btn-act btn-saas">Signature 1 GPT</a>
+                            <p><b>Focus:</b> Brand Identity + Positioning. Architect a brand frequency that attracts elite buyers before you speak.</p>
+                            <p><b>1.</b> <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" style="color:var(--crimson);">Download Workbook</a></p>
+                            <p><b>2.</b> <a href="https://www.canva.com/design/DAGwKW1nygc/hqIGNGpD1PIViDGtaF1Igg/edit" target="_blank" style="color:var(--crimson);">Open Resource Doc</a></p>
+                            <p><b>3.</b> Activate <b>Aurelia</b> to manifest your Clarity Blueprint.</p>
+                            <a href="https://chatgpt.com/" target="_blank" class="btn-act btn-saas">Launch Signature 1 GPT</a>
                             <a href="https://signature-one-clarity-code-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-gpt">Activate Aurelia Generator</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- ADD MORE CARDS HERE AS WE PROGRESS -->
+
             </div>
         </div>
 
+        <!-- FOOTER -->
         <section class="disclaimer">
-            <h2>Terms of Sovereignty</h2>
-            <p>Signature 7 is an Industrial AI Infrastructure. By entering, you transition from laborer to Architect. We provide the machine; you provide the vision.</p>
-            <p style="margin-top: 30px; font-size: 0.7rem; letter-spacing: 3px;">&copy; 2026 GJ GROW & GLOW | SIGNATURE 7™</p>
+            <p>&copy; 2026 GJ GROW & GLOW | SIGNATURE 7™ THE SOVEREIGN IMPERIUM</p>
+            <p style="font-size: 0.7rem; margin-top: 10px; color: #333;">Signature 7 is an Industrial AI Infrastructure. We provide the machine; you provide the vision.</p>
         </section>
     </div>
 
@@ -193,16 +220,11 @@
         function unlock() {
             const key = document.getElementById('accessCode').value.trim();
             if(key === "GLOW777") {
-                // Remove the gate
                 document.getElementById('gate').style.display = 'none';
-                // Show the dashboard
                 document.getElementById('dashboard').style.display = 'block';
-                // Trigger animations
                 window.scrollTo(0,0);
                 AOS.init({ duration: 1200, once: true });
-            } else {
-                alert("ACCESS DENIED.");
-            }
+            } else { alert("ACCESS DENIED."); }
         }
     </script>
 </body>
