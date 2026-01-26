@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Signature 7™ | THE SOVEREIGN IMPERIUM</title>
     
     <!-- Premium Fonts -->
@@ -60,10 +60,10 @@
         /* --- MAIN DASHBOARD --- */
         #dashboard { display: none; }
         .os-header { background: var(--void-black); padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--royal-gold); position: relative; z-index: 10; }
-        .os-header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 10px; color: #fff; margin: 0; }
+        .os-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.2rem); text-transform: uppercase; letter-spacing: 10px; color: #fff; margin: 0; }
         .os-header span { font-family: 'Great Vibes', cursive; color: var(--royal-gold); font-size: 2.2rem; display: block; margin-top: -5px; }
 
-        .container { width: 100%; max-width: 1200px; margin: auto; padding: 60px 20px; position: relative; z-index: 11; }
+        .container { width: 100%; max-width: 1200px; margin: auto; padding: 40px 20px; position: relative; z-index: 11; }
 
         .section-box { padding: 80px 0; border-bottom: 1px solid #eee; }
         .welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
@@ -90,7 +90,7 @@
         .btn-saas { background: var(--void-black); color: var(--royal-gold); border: 1px solid var(--royal-gold); }
 
         @keyframes rotateGate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @media (max-width: 768px) { .welcome-grid { grid-template-columns: 1fr; text-align: center; } .module-card { height: 600px; } }
+        @media (max-width: 768px) { .welcome-grid { grid-template-columns: 1fr; text-align: center; } .module-card { height: 500px; } .os-header h1 { font-size: 1.2rem; } }
     </style>
 </head>
 <body>
@@ -118,54 +118,57 @@
             <section class="section-box" style="text-align: center;">
                 <h2 style="font-family: 'Playfair Display'; font-size: 2.8rem; color: var(--crimson);">✨ Welcome to Signature 7™ ✨</h2>
                 <div class="img-frame" style="max-width: 500px; margin: 40px auto;">
-                    <img src="https://i.postimg.cc/wTxtRNmZ/skool-jan26.jpg" alt="Welcome">
+                    <img src="https://i.postimg.cc/wTxtRNmZ/skool-jan26.jpg" alt="Welcome to the Academy">
                 </div>
-                <p style="max-width: 800px; font-size: 1.2rem; line-height: 1.8; margin: 0 auto; color: #444;">Congratulations, Architect. You’ve just stepped into the only space where high-end branding meets industrial automation. I’m Gwen, and I created this Imperium to give you the clarity, tools, and confidence to build an iconic brand that commands your market.</p>
+                <p style="max-width: 800px; font-size: 1.2rem; line-height: 1.8; margin: 0 auto; color: #444;">
+                    Congratulations, Architect. You have just entered the only space where luxury branding meets industrial automation. 
+                    I created this Imperium to provide you with the clarity, tools, and confidence to build an iconic brand that commands your market.
+                </p>
                 <div class="video-wrapper">
                     <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/536837ecd5cb463ca593c983deea8bb1?hide_owner=true&hide_share=true&hide_title=true&hide_embed_top_bar=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
                 </div>
             </section>
 
-            <!-- FOUNDER -->
+            <!-- FOUNDER (FIXED IMAGE LINK) -->
             <section class="section-box welcome-grid">
                 <div class="flip-card" data-aos="flip-right">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="https://i.postimg.cc/wvHx8K5G/skool_jan26.jpg" alt="Founder">
+                            <img src="https://i.postimg.cc/wvHx8K5G/skool_jan26.jpg" alt="Founder Signature">
                             <h3>About Your Founder</h3>
-                            <p style="font-size: 0.7rem; color: var(--royal-gold); margin-top: 10px;">HOVER TO UNVEIL</p>
+                            <p style="font-size: 0.7rem; color: var(--royal-gold); margin-top: 10px;">HOVER TO UNVEIL VISION</p>
                         </div>
                         <div class="card-back">
-                            <h4>The Vision</h4>
-                            <p>Built from trust and loyalty, I created this framework to transform scattered brands into iconic empires. My philosophy: Your brand should feel unforgettable, your systems effortless, and your offers irresistible.</p>
+                            <h4>Gwen</h4>
+                            <p>I built Signature 7™ to solve the problem of content chaos, confusing offers, and cookie-cutter strategies. My philosophy is simple: Your brand should feel unforgettable, your systems effortless, and your offers irresistible.</p>
                         </div>
                     </div>
                 </div>
                 <div class="text-box" data-aos="fade-left">
                     <h2>Transformation Starts Here.</h2>
-                    <p>After years of watching entrepreneurs get lost in content chaos, I built the AI BOSS to provide clarity on repeat. We help ambitious leaders command their market through luxury branding and AI-powered labor.</p>
+                    <p>After years of watching entrepreneurs get lost in noise, I architected the AI BOSS to provide clarity on repeat. We help ambitious leaders command their market through high-end branding and AI-powered labor.</p>
                 </div>
             </section>
 
-            <!-- LADIES EMPIRE -->
+            <!-- AI BO$$ EMPIRE (LADIES) -->
             <section class="section-box welcome-grid" style="direction: rtl;">
                 <div class="img-frame" data-aos="fade-left">
-                    <img src="https://i.postimg.cc/fbHsF3LK/skool-jan26.jpg" alt="AI BO$$ Empire">
+                    <img src="https://i.postimg.cc/fbHsF3LK/skool-jan26.jpg" alt="The Trio">
                 </div>
                 <div class="text-box" style="direction: ltr;" data-aos="fade-right">
                     <h2>AI BO$$ Empire</h2>
-                    <p>Welcome to a space where fierce energy reigns supreme. <b>LUNA, VEGA, and LYRA</b> just stepped into the Imperium where glass ceilings are shattered. Unleash your inner CEO and build a sisterhood that thrives on success. Identity first. Results second. No refunds EVER.</p>
+                    <p>Welcome to a space where moves are fierce and energy is sovereign. LUNA, VEGA, and LYRA have stepped into an Imperium where glass ceilings are shattered. Identity first. Results second.</p>
                 </div>
             </section>
 
-            <!-- ALPHA ERA (CORRECTED LIST) -->
+            <!-- ALPHA ERA (REFINED LIST) -->
             <section class="section-box welcome-grid">
                 <div class="img-frame" data-aos="fade-right">
-                    <img src="https://i.postimg.cc/SxDHQBhn/skool-jan26.jpg" alt="The Alpha Era">
+                    <img src="https://i.postimg.cc/SxDHQBhn/skool-jan26.jpg" alt="Alpha Tech">
                 </div>
                 <div class="text-box" data-aos="fade-left">
                     <h2>The Alpha Era</h2>
-                    <p>Built Different. Mentors in machine form. Collaborating with my friend Ste, a veteran coach, we created bots charged with tactical precision. No fluff. No filters. Build empires, no excuses.</p>
+                    <p>Built Different. Mentors in machine form. Collaborating with veteran coach Ste, we created bots charged with tactical precision. Real strategy. Real results.</p>
                     <p style="color: var(--royal-gold); font-weight: 900; letter-spacing: 2px;">✦ RAGNAR ✦ STE ✦ MAX</p>
                 </div>
             </section>
@@ -173,7 +176,7 @@
             <center><h2 style="font-family: 'Playfair Display'; font-size: 3rem; text-transform: uppercase; margin: 100px 0;">The 7 Signatures</h2></center>
 
             <div class="module-grid">
-                <!-- SIGNATURE 1 -->
+                <!-- SIGNATURE 1 (ACTIVE GPT LINK) -->
                 <div class="module-card" data-aos="zoom-in">
                     <div class="card-inner">
                         <div class="card-front">
@@ -182,7 +185,9 @@
                         </div>
                         <div class="card-back">
                             <h4>Clarity Core</h4>
-                            <p>Resolve niche confusion. <b>Step 1:</b> <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" style="color:var(--crimson);">Download Workbook</a>. <b>Step 2:</b> Open Resource Doc. <b>Step 3:</b> Activate Bot.</p>
+                            <p><b>Resolves:</b> Niche confusion and weak positioning. Architect a brand frequency that attracts elite buyers before you speak.</p>
+                            <p><b>01:</b> <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" style="color:var(--crimson); font-weight: bold;">Download Workbook</a></p>
+                            <p><b>02:</b> <a href="https://www.canva.com/design/DAGwKW1nygc/hqIGNGpD1PIViDGtaF1Igg/edit" target="_blank" style="color:var(--crimson); font-weight: bold;">Open Resource Doc</a></p>
                             <a href="https://chatgpt.com/g/g-68a0d9fee18881918deba7940887c948-signature-one-clarity-core" target="_blank" class="btn-act btn-saas">Signature 1 GPT Bot</a>
                             <a href="https://signature-one-clarity-code-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-gpt">Activate Aurelia Generator</a>
                         </div>
@@ -193,7 +198,7 @@
             <!-- AUDIT -->
             <section style="padding: 100px 0; text-align: center; border-top: 2px solid var(--royal-gold);">
                 <div class="img-frame" style="max-width: 400px; margin: 0 auto 40px;">
-                    <img src="https://i.postimg.cc/65QrJgYd/skool-jan26.jpg" alt="Audit">
+                    <img src="https://i.postimg.cc/65QrJgYd/skool-jan26.jpg" alt="Audit Tool">
                 </div>
                 <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem;">S7 Strategic Oracle Audit</h2>
                 <a href="https://ai.studio/apps/drive/1OaNfYUyhVjc3kUoEezgF6JqNFiuj4uAt?fullscreenApplet=true" target="_blank" class="btn-act btn-gpt" style="max-width: 300px; margin: 30px auto; padding: 20px;">Take the Free Audit</a>
