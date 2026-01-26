@@ -17,6 +17,7 @@
             --silk-cream: #fdfaf5;
             --crimson: #E60000;
             --royal-gold: #D4AF37;
+            --luminous-gold: #ffdf00;
             --void-black: #0a0a0a;
         }
 
@@ -30,6 +31,21 @@
             overflow-x: hidden;
         }
 
+        /* --- THE WOW LUMINOUS SPARKLES --- */
+        .sparkle-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 5;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 10%),
+                radial-gradient(circle at 80% 70%, rgba(230, 0, 0, 0.08) 0%, transparent 10%);
+        }
+        .sparkle-container::before {
+            content: ""; position: absolute; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.4; animation: sparkleDrift 25s linear infinite;
+        }
+        @keyframes sparkleDrift { from { background-position: 0 0; } to { background-position: 1000px 1000px; } }
+
         /* --- THE WOW ENTRY GATE --- */
         #gate { 
             height: 100vh; width: 100%; display: flex; flex-direction: column; 
@@ -38,93 +54,62 @@
             position: fixed; top: 0; left: 0; z-index: 9999;
         }
         #gate::after {
-            content: ''; position: absolute; width: 200%; height: 200%;
-            background-image: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
+            content: ''; position: absolute; width: 150%; height: 150%;
+            background-image: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            animation: rotateGate 20s linear infinite;
         }
-
-        .gate-title { 
-            font-family: 'Playfair Display', serif; font-size: clamp(2rem, 10vw, 4.5rem); 
-            color: var(--royal-gold); text-transform: uppercase; letter-spacing: 15px; 
-            z-index: 2; text-shadow: 0 0 25px var(--royal-gold); margin: 0;
-        }
+        .gate-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 10vw, 4.5rem); color: var(--royal-gold); text-transform: uppercase; letter-spacing: 15px; z-index: 2; text-shadow: 0 0 25px var(--royal-gold); margin: 0; }
         .gate-sub { color: var(--crimson); letter-spacing: 8px; font-size: 0.8rem; margin-top: 20px; font-weight: 900; z-index: 2; }
-        
-        .code-input { 
-            background: none; border: none; border-bottom: 2px solid var(--royal-gold); 
-            color: #fff; padding: 15px; text-align: center; font-size: 1.8rem; 
-            width: 320px; outline: none; margin: 50px 0; letter-spacing: 12px; z-index: 2;
-        }
+        .code-input { background: none; border: none; border-bottom: 2px solid var(--royal-gold); color: #fff; padding: 15px; text-align: center; font-size: 1.8rem; width: 320px; outline: none; margin: 50px 0; letter-spacing: 12px; z-index: 2; }
+        .btn-auth { border: 2px solid var(--crimson); color: var(--crimson); padding: 18px 60px; text-transform: uppercase; letter-spacing: 5px; cursor: pointer; background: none; transition: 0.5s; font-weight: 700; z-index: 2; }
+        .btn-auth:hover { background: var(--crimson); color: white; box-shadow: 0 0 40px var(--crimson); }
 
-        .btn-auth { 
-            border: 2px solid var(--royal-gold); color: var(--royal-gold); padding: 18px 60px; 
-            text-transform: uppercase; letter-spacing: 5px; cursor: pointer; background: none; 
-            transition: 0.5s; font-weight: 700; z-index: 2;
-        }
-        .btn-auth:hover { background: var(--royal-gold); color: #000; box-shadow: 0 0 40px var(--royal-gold); }
-
-        /* --- MAIN OS INTERFACE --- */
+        /* --- DASHBOARD --- */
         #dashboard { display: none; }
-        
-        .os-header { 
-            background: var(--void-black); padding: 60px 20px; text-align: center; 
-            border-bottom: 5px solid var(--royal-gold);
-        }
-        .os-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 5vw, 2.5rem); text-transform: uppercase; letter-spacing: 10px; color: #fff; margin: 0; }
+        .os-header { background: var(--void-black); padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--royal-gold); position: relative; z-index: 10; }
+        .os-header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 10px; color: #fff; margin: 0; }
         .os-header span { font-family: 'Great Vibes', cursive; color: var(--royal-gold); font-size: 2.2rem; display: block; margin-top: -5px; }
 
-        .container { width: 100%; max-width: 1200px; margin: auto; padding: 80px 20px; }
+        .container { width: 100%; max-width: 1200px; margin: auto; padding: 60px 20px; position: relative; z-index: 11; }
 
-        /* WELCOME SECTIONS */
-        .welcome-section { padding: 80px 0; border-bottom: 1px solid #eee; }
+        /* FLIP CARD LOGIC */
+        .flip-card { perspective: 1500px; height: 600px; margin-bottom: 40px; }
+        .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
+        .flip-card:hover .card-inner { transform: rotateY(180deg); }
+        .card-front, .card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; background: white; border: 1px solid #ddd; padding: 20px; border-radius: 2px; }
+        .card-front { border-top: 8px solid var(--royal-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card-front img { width: 100%; height: 80%; object-fit: cover; border: 1px solid #eee; }
+        .card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--void-black); margin-top: 20px; text-transform: uppercase; }
+        .card-back { transform: rotateY(180deg); display: flex; flex-direction: column; text-align: left; padding: 35px; border-top: 8px solid var(--crimson); overflow-y: auto; }
+        .card-back h4 { font-family: 'Playfair Display', serif; color: var(--imperial-red); font-size: 1.6rem; margin: 0 0 10px; text-transform: uppercase; }
+        .card-back p { font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 15px; }
+
+        /* SECTIONS */
+        .section-box { padding: 100px 0; border-bottom: 1px solid #eee; }
         .welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        
         .img-frame { border: 1px solid var(--royal-gold); padding: 15px; background: white; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
         .img-frame img { width: 100%; display: block; }
-        
         .text-box h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--crimson); text-transform: uppercase; margin-bottom: 20px; }
         .text-box p { font-size: 1.1rem; line-height: 1.8; color: #444; }
 
-        /* VIDEO */
-        .video-container { width: 100%; max-width: 800px; margin: 50px auto; border: 2px solid var(--royal-gold); padding: 10px; background: #000; }
+        .video-wrapper { width: 100%; max-width: 850px; margin: 40px auto; border: 4px double var(--royal-gold); padding: 10px; background: #000; box-shadow: 0 0 40px rgba(212,175,55,0.3); }
 
-        /* MODULES */
-        .section-header { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--royal-gold); text-align: center; margin: 120px 0 60px; text-transform: uppercase; letter-spacing: 10px; }
-        .module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px; margin-bottom: 100px; }
-
-        /* 3D FLIP CARDS */
-        .module-card { perspective: 1500px; height: 680px; }
-        .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
-        .module-card:hover .card-inner { transform: rotateY(180deg); }
-        
-        .card-front, .card-back { 
-            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; 
-            background: white; border: 1px solid #ddd; padding: 20px; border-radius: 2px;
-        }
-        .card-front { border-top: 8px solid var(--royal-gold); }
-        .card-front img { width: 100%; height: 80%; object-fit: cover; }
-        .card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #0a0a0a; margin-top: 20px; text-transform: uppercase; }
-
-        .card-back { 
-            transform: rotateY(180deg); display: flex; flex-direction: column; text-align: left; padding: 30px; border-top: 8px solid var(--crimson);
-            overflow-y: auto;
-        }
-        .card-back h4 { font-family: 'Playfair Display', serif; color: #8B0000; font-size: 1.6rem; margin: 0 0 10px; text-transform: uppercase; }
-        .card-back p { font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 10px; }
-
-        .btn-act { display: block; text-align: center; padding: 15px; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; transition: 0.4s; margin-top: 10px; }
-        .btn-gpt { background: var(--crimson); color: white; }
+        .btn-row { display: flex; gap: 10px; margin-top: auto; }
+        .btn-act { flex: 1; text-align: center; padding: 15px; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; transition: 0.4s; }
+        .btn-gpt { background: var(--crimson); color: white; border: none; }
         .btn-saas { background: var(--void-black); color: var(--royal-gold); border: 1px solid var(--royal-gold); }
 
-        .disclaimer { background: var(--void-black); color: #555; padding: 100px 40px; text-align: center; border-top: 5px solid var(--royal-gold); }
+        .disclaimer { background: var(--void-black); color: #444; padding: 80px 40px; text-align: center; border-top: 5px solid var(--royal-gold); }
 
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @media (max-width: 768px) { .welcome-grid { grid-template-columns: 1fr; text-align: center; } .module-card { height: 620px; } }
+        @keyframes rotateGate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @media (max-width: 768px) { .welcome-grid { grid-template-columns: 1fr; text-align: center; } .flip-card { height: 550px; } }
     </style>
 </head>
 <body>
 
-    <!-- SECURE GATE -->
+    <div class="sparkle-container"></div>
+
+    <!-- GATE -->
     <div id="gate">
         <h1 class="gate-title">Signature 7</h1>
         <p class="gate-sub">THE SOVEREIGN IMPERIUM | GJ GROW & GLOW</p>
@@ -141,91 +126,78 @@
 
         <div class="container">
             
-            <!-- SECTION: WELCOME & VIDEO -->
-            <section class="welcome-section">
-                <center>
-                    <h2 style="font-family: 'Playfair Display'; font-size: 2.8rem; color: var(--crimson);">✨ Welcome to Signature 7™ ✨</h2>
-                    <p style="max-width: 800px; font-size: 1.2rem; line-height: 1.8; color: #444; margin-top: 20px;">
-                        Congratulations, Architect. You’ve just stepped into the only space where high-end branding meets industrial automation. I’m Gwen, and I created this Imperium to give you the clarity, tools, and confidence to command your market.
-                    </p>
-                    
-                    <div class="video-container" data-aos="zoom-in">
-                        <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/536837ecd5cb463ca593c983deea8bb1?hide_owner=true&hide_share=true&hide_title=true&hide_embed_top_bar=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-                    </div>
-                </center>
+            <!-- WELCOME & VIDEO -->
+            <section class="section-box" style="text-align: center;">
+                <h2 style="font-family: 'Playfair Display'; font-size: 3rem; color: var(--crimson);">✨ Welcome Architect ✨</h2>
+                <div class="img-frame" style="max-width: 500px; margin: 40px auto;">
+                    <img src="https://i.postimg.cc/wTxtRNmZ/skool-jan26.jpg" alt="Signature 7 Welcome">
+                </div>
+                <p style="max-width: 800px; font-size: 1.2rem; line-height: 1.8; margin: 0 auto; color: #444;">
+                    Congratulations, you’ve just stepped into the only space where branding meets industrial automation. I’m Gwen, and I created this Imperium to give you the clarity, tools, and confidence to build an iconic brand that commands your market.
+                </p>
+                <div class="video-wrapper">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/536837ecd5cb463ca593c983deea8bb1?hide_owner=true" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+                </div>
             </section>
 
-            <!-- SECTION: FOUNDER STORY -->
-            <section class="welcome-section welcome-grid">
-                <div class="img-frame" data-aos="fade-right">
-                    <img src="https://i.postimg.cc/wTxtRNmZ/skool-jan26.jpg" alt="Welcome to the Empire">
+            <!-- FOUNDER SECTION -->
+            <section class="section-box welcome-grid">
+                <div class="flip-card" data-aos="flip-right">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="https://i.postimg.cc/wvHx8K5G/skool-jan26.jpg" alt="The Founder">
+                            <h3>Meet Your Founder</h3>
+                            <p style="font-size: 0.8rem; color: var(--royal-gold); margin-top: 10px;">HOVER TO UNVEIL PHILOSOPHY</p>
+                        </div>
+                        <div class="card-back">
+                            <h4>The Visionary</h4>
+                            <p>I built Signature 7™ to solve the problem of content chaos, confusing offers, and cookie-cutter strategies. My philosophy: Your brand should feel unforgettable, your systems should feel effortless, and your offers should feel irresistible.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="text-box" data-aos="fade-left">
-                    <h2>About Your Founder</h2>
-                    <p>I’m Gwen, the founder of Signature 7™, with my trusting mentor and friend, Katie. We built this framework to transform scattered brands into iconic empires. After years of watching entrepreneurs get lost in content chaos, we built the AI BOSS to solve the problem once and for all.</p>
-                    <p style="border-left: 3px solid var(--royal-gold); padding-left: 20px; font-style: italic;">"Your brand should feel unforgettable, your systems should feel effortless, and your offers should feel irresistible."</p>
+                    <h2>Transformation over Information.</h2>
+                    <p>After years of watching entrepreneurs get lost in the noise, I built the AI BOSS to provide clarity and client attraction on repeat. We help ambitious leaders command their market through luxury branding and AI-powered labor.</p>
                 </div>
             </section>
 
-            <!-- SECTION: ALPHA ERA -->
-            <section class="welcome-section welcome-grid" style="direction: rtl;">
+            <!-- AI BO$$ EMPIRE -->
+            <section class="section-box welcome-grid" style="direction: rtl;">
                 <div class="img-frame" data-aos="fade-left">
-                    <img src="https://i.postimg.cc/fbHsF3LK/skool-jan26.jpg" alt="Alpha Era">
+                    <img src="https://i.postimg.cc/fbHsF3LK/skool-jan26.jpg" alt="AI BO$$ Empire">
                 </div>
                 <div class="text-box" style="direction: ltr;" data-aos="fade-right">
-                    <h2>The Alpha Era</h2>
-                    <p>Born from real experience. No fluff. No filters. Together with my friend Ste, we created mentors in machine form. Coded with unapologetic energy and tactical precision. Build empires, no excuses.</p>
-                    <p style="color: var(--royal-gold); font-weight: bold; letter-spacing: 2px;">✦ RAGNAR ✦ MAX ✦ ZANE ✦ ATLAS ✦ GRAMPA JO</p>
+                    <h2>AI BO$$ Empire</h2>
+                    <p>Welcome to the Empire, where power moves and fierce energy reign supreme. This is where you unleash your inner CEO and build a sisterhood that thrives on success and an unshakable mindset.</p>
+                    <p style="color: var(--crimson); font-weight: 800; letter-spacing: 2px;">IDENTITY FIRST. RESULTS SECOND. NO REFUNDS EVER.</p>
                 </div>
             </section>
 
-            <h2 class="section-header">The 7 Signatures</h2>
+            <!-- ALPHA ERA -->
+            <section class="section-box welcome-grid">
+                <div class="img-frame" data-aos="fade-right">
+                    <img src="https://i.postimg.cc/SxDHQBhn/skool-jan26.jpg" alt="Alpha Era">
+                </div>
+                <div class="text-box" data-aos="fade-left">
+                    <h2>The Alpha Era</h2>
+                    <p>Built Different. Mentors in machine form. Coded with real strategy and tactical precision to build empires with no excuses. This is the future of digital mentorship.</p>
+                    <p style="color: var(--royal-gold); letter-spacing: 3px; font-weight: 900;">✦ RAGNAR ✦ MAX ✦ ZANE ✦ ATLAS ✦ GRAMPA JO</p>
+                </div>
+            </section>
+
+            <center><h2 style="font-family: 'Playfair Display'; font-size: 3rem; text-transform: uppercase; margin: 100px 0; border-bottom: 2px solid var(--royal-gold); display: inline-block; padding-bottom: 10px;">The 7 Signatures</h2></center>
 
             <div class="module-grid">
-                
-                <!-- PILLAR 1: CLARITY CORE -->
+                <!-- SIGNATURE ONE -->
                 <div class="module-card" data-aos="zoom-in">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="https://i.postimg.cc/x8sJsjmQ/skool-jan26.jpg" alt="Signature 1">
+                            <img src="https://i.postimg.cc/x8sJsjmQ/skool-jan26.jpg" alt="Pillar 1">
                             <h3>01. Clarity Core</h3>
                         </div>
                         <div class="card-back">
                             <h4>Clarity Core</h4>
-                            <p><b>Focus:</b> Brand Identity + Positioning. Architect a brand frequency that attracts elite buyers before you speak.</p>
-                            <p><b>1.</b> <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" style="color:var(--crimson);">Download Workbook</a></p>
-                            <p><b>2.</b> <a href="https://www.canva.com/design/DAGwKW1nygc/hqIGNGpD1PIViDGtaF1Igg/edit" target="_blank" style="color:var(--crimson);">Open Resource Doc</a></p>
-                            <p><b>3.</b> Activate <b>Aurelia</b> to manifest your Clarity Blueprint.</p>
-                            <a href="https://chatgpt.com/" target="_blank" class="btn-act btn-saas">Launch Signature 1 GPT</a>
-                            <a href="https://signature-one-clarity-code-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-gpt">Activate Aurelia Generator</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ADD MORE CARDS HERE AS WE PROGRESS -->
-
-            </div>
-        </div>
-
-        <!-- FOOTER -->
-        <section class="disclaimer">
-            <p>&copy; 2026 GJ GROW & GLOW | SIGNATURE 7™ THE SOVEREIGN IMPERIUM</p>
-            <p style="font-size: 0.7rem; margin-top: 10px; color: #333;">Signature 7 is an Industrial AI Infrastructure. We provide the machine; you provide the vision.</p>
-        </section>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        function unlock() {
-            const key = document.getElementById('accessCode').value.trim();
-            if(key === "GLOW777") {
-                document.getElementById('gate').style.display = 'none';
-                document.getElementById('dashboard').style.display = 'block';
-                window.scrollTo(0,0);
-                AOS.init({ duration: 1200, once: true });
-            } else { alert("ACCESS DENIED."); }
-        }
-    </script>
-</body>
-</html>
+                            <p><b>Resolves:</b> Niche confusion and weak positioning. Without clarity, you confuse. With clarity, every word hits harder.</p>
+                            <p><b>01:</b> <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" style="color:var(--crimson);">Download Workbook</a></p>
+                            <p><b>02:</b> <a href="https://www.canva.com/design/DAGwKW1nygc/hqIGNGpD1PIViDGtaF1Igg/edit" target="_blank" style="color:var(--crimson);">Open Resource Doc</a></p>
+                            <p><b>03:</b> Activate <b>Aurelia</b> to manifest your Clarity Blueprint.</p>
