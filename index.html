@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGNATURE 7 | WELCOME TO THE EMPIRE</title>
+    <title>SIGNATURE 7™ | THE SOVEREIGN IMPERIUM</title>
     
     <!-- Premium Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;600;900&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -14,9 +14,8 @@
     <style>
         :root {
             --pearl-white: #ffffff;
-            --cream-silk: #fcfaf7;
-            --imperial-red: #8B0000;
-            --luminous-crimson: #E60000;
+            --silk-cream: #fdfaf5;
+            --crimson: #E60000;
             --royal-gold: #D4AF37;
             --luminous-gold: #ffdf00;
             --void-black: #0a0a0a;
@@ -25,226 +24,32 @@
         * { box-sizing: border-box; }
 
         body {
-            background-color: var(--cream-silk);
+            background-color: var(--silk-cream);
             color: var(--void-black);
             font-family: 'Montserrat', sans-serif;
             margin: 0; padding: 0;
             overflow-x: hidden;
+            /* LUMINOUS SPARKLE OVERLAY */
+            background-image: url('https://www.transparenttextures.com/patterns/dust.png'), radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, var(--silk-cream) 70%);
         }
 
-        /* --- SPARKLING GOLD BACKGROUND --- */
-        .sparkle-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/white-diamond.png');
-            z-index: -1; pointer-events: none;
-        }
+        .container { width: 100%; max-width: 1200px; margin: auto; padding: 0 20px; }
 
-        .container { width: 100%; max-width: 1100px; margin: auto; padding: 0 20px; }
-
-        /* --- SECURITY GATE (RE-STYLIZED) --- */
+        /* --- THE WOW ENTRY GATE --- */
         #gate { 
             height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            background: var(--void-black); text-align: center; position: relative;
+            background: var(--void-black); text-align: center; position: relative; overflow: hidden;
         }
         .gate-title { 
             font-family: 'Playfair Display', serif; font-size: clamp(2rem, 10vw, 5rem); 
             color: var(--royal-gold); text-transform: uppercase; letter-spacing: 15px; 
-            text-shadow: 0 0 20px var(--royal-gold); margin: 0;
+            text-shadow: 0 0 25px var(--royal-gold); margin: 0;
         }
+        .gate-sub { color: var(--crimson); letter-spacing: 8px; font-size: 0.8rem; margin-top: 20px; font-weight: 900; }
         .code-input { 
             background: none; border: none; border-bottom: 2px solid var(--royal-gold); 
             color: #fff; padding: 15px; text-align: center; font-size: 1.8rem; 
-            width: 300px; outline: none; margin: 40px 0; letter-spacing: 8px;
+            width: 350px; outline: none; margin: 40px 0; letter-spacing: 12px;
         }
         .btn-auth { 
-            border: 2px solid var(--luminous-crimson); color: var(--luminous-crimson); padding: 15px 50px; 
-            text-transform: uppercase; letter-spacing: 3px; cursor: pointer; background: none; transition: 0.5s; font-weight: 900;
-        }
-        .btn-auth:hover { background: var(--luminous-crimson); color: white; box-shadow: 0 0 30px var(--luminous-crimson); }
-
-        /* --- DASHBOARD SECTION --- */
-        #dashboard { display: none; }
-
-        /* HERO WELCOME */
-        .welcome-hero { 
-            padding: 100px 0; text-align: center; 
-            border-bottom: 1px solid var(--royal-gold);
-            background: white;
-        }
-        .welcome-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 4rem); text-transform: uppercase; letter-spacing: 8px; margin: 0; }
-        .welcome-hero span { font-family: 'Great Vibes', cursive; color: var(--royal-gold); font-size: 2.5rem; display: block; margin-top: -10px; }
-
-        /* SECTION LAYOUTS */
-        .content-section { padding: 100px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .content-section:nth-child(even) { direction: rtl; }
-        .content-section:nth-child(even) .text-box { direction: ltr; }
-
-        .img-frame { border: 1px solid var(--royal-gold); padding: 15px; background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.05); transition: 0.5s; }
-        .img-frame:hover { border-color: var(--luminous-crimson); transform: scale(1.02); }
-        .img-frame img { width: 100%; display: block; }
-
-        .text-box h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--imperial-red); text-transform: uppercase; margin-bottom: 20px; }
-        .text-box p { font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 20px; }
-        .highlight-bar { border-left: 4px solid var(--royal-gold); padding-left: 20px; font-style: italic; color: #666; margin: 30px 0; }
-
-        /* SPECIAL EMPIRE BOX */
-        .empire-box { 
-            background: var(--void-black); color: white; padding: 80px 40px; text-align: center; 
-            border-top: 5px solid var(--luminous-crimson); margin: 100px 0;
-        }
-        .empire-box h2 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--royal-gold); letter-spacing: 5px; }
-
-        /* INSTRUCTION CARDS */
-        .instruction-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .inst-card { background: white; padding: 40px; border: 1px solid #eee; border-top: 4px solid var(--royal-gold); text-align: left; }
-        .inst-card h4 { color: var(--luminous-crimson); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
-
-        /* BUTTONS */
-        .btn-sovereign { 
-            display: inline-block; padding: 18px 45px; background: var(--luminous-crimson); color: white; 
-            text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-weight: 900; 
-            transition: 0.4s; box-shadow: 0 10px 20px rgba(230, 0, 0, 0.2); margin-top: 30px;
-        }
-        .btn-sovereign:hover { background: var(--void-black); color: var(--royal-gold); transform: translateY(-3px); }
-
-        /* LOOM VIDEO CONTAINER */
-        .video-container { width: 100%; max-width: 800px; margin: 50px auto; border: 2px solid var(--royal-gold); padding: 10px; background: #000; }
-
-        @media (max-width: 768px) {
-            .content-section { grid-template-columns: 1fr; text-align: center; }
-            .gate-title { font-size: 2.5rem; letter-spacing: 10px; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="sparkle-bg"></div>
-
-    <!-- GATE -->
-    <div id="gate">
-        <h1 class="gate-title">Signature 7</h1>
-        <p class="gate-sub">GJ GROW & GLOW | ACCESS ENCRYPTED</p>
-        <input type="password" id="accessCode" class="code-input" placeholder="PASSKEY">
-        <button class="btn-auth" onclick="unlock()">Authenticate</button>
-    </div>
-
-    <!-- DASHBOARD -->
-    <div id="dashboard">
-        
-        <!-- HERO WELCOME -->
-        <section class="welcome-hero">
-            <div class="container">
-                <h1 data-aos="fade-down">Welcome to Signature 7</h1>
-                <span data-aos="fade-up">The AI Boss Academy</span>
-                <p style="max-width: 700px; margin: 40px auto; font-size: 1.2rem; line-height: 1.8;">
-                    Congratulations, Architect. You’ve just stepped into the only space where high-end branding meets industrial automation.
-                </p>
-                <div class="video-container" data-aos="zoom-in">
-                    <!-- LOOM EMBED -->
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/536837ecd5cb463ca593c983deea8bb1?hide_owner=true&hide_share=true&hide_title=true&hide_embed_top_bar=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-                </div>
-            </div>
-        </section>
-
-        <div class="container">
-            
-            <!-- SECTION 1: FOUNDER -->
-            <section class="content-section">
-                <div class="img-frame" data-aos="fade-right">
-                    <img src="https://i.postimg.cc/wTxtRNmZ/skool-jan26.jpg" alt="Welcome to the Empire">
-                </div>
-                <div class="text-box" data-aos="fade-left">
-                    <h2>Meet Your Founder</h2>
-                    <p>I’m Gwen, the founder of Signature 7™, here with my trusting mentor and friend, Katie. We built this framework from trust and loyalty to transform scattered brands into iconic empires.</p>
-                    <div class="highlight-bar">
-                        "Your brand should feel unforgettable, your systems should feel effortless, and your offers should feel irresistible."
-                    </div>
-                    <p>After years of watching entrepreneurs get lost in content chaos, we built the AI BOSS to solve the problem: clarity, confidence, and client attraction on repeat.</p>
-                </div>
-            </section>
-
-            <!-- SECTION 2: THE EMPIRE TRIO -->
-            <section class="empire-box" data-aos="zoom-in">
-                <h2>The AI BO$$ Empire</h2>
-                <p style="font-size: 1.5rem; font-weight: 300; margin-bottom: 40px;">LUNA, VEGA, and LYRA just stepped into the space.</p>
-                <div class="img-frame" style="max-width: 600px; margin: auto; border-color: var(--luminous-crimson);">
-                    <img src="https://i.postimg.cc/fbHsF3LK/skool-jan26.jpg" alt="Empire Trio">
-                </div>
-                <p style="margin-top: 40px; font-size: 1.2rem; color: #ccc;">We don’t just break glass ceilings, we SHATTER them. This is where you unleash your inner CEO and build a sisterhood that thrives on success. Identity first. Results second. No refunds EVER.</p>
-            </section>
-
-            <!-- SECTION 3: ALPHA ERA -->
-            <section class="content-section">
-                <div class="text-box" data-aos="fade-right">
-                    <h2>The Alpha Era: Built Different</h2>
-                    <p>What started with Ragnar and Max—two bots built for strategy—became a movement. Born from real experience. No fluff. No filters.</p>
-                    <p>In collaboration with my friend Ste, the ultimate no-BS coach, we created mentors in machine form. Real strategy. Real mindset. Real results.</p>
-                    <ul style="list-style: none; padding: 0; color: var(--royal-gold); font-weight: bold; letter-spacing: 2px;">
-                        <li>✦ ZANE (Drop Shipping)</li>
-                        <li>✦ ATLAS (Offer Stack Master)</li>
-                        <li>✦ GRAMPA JO (Life & Wisdom)</li>
-                    </ul>
-                </div>
-                <div class="img-frame" data-aos="fade-left">
-                    <img src="https://i.postimg.cc/wvHx8K5G/skool-jan26.jpg" alt="Alpha Era">
-                </div>
-            </section>
-
-            <!-- SECTION 4: INSTRUCTIONS -->
-            <section style="padding: 100px 0; text-align: center; border-top: 1px solid #eee;">
-                <h2 style="font-family: 'Playfair Display'; font-size: 3rem; color: var(--void-black);">How to Command</h2>
-                <div class="img-frame" style="max-width: 500px; margin: 40px auto;">
-                    <img src="https://i.postimg.cc/SxDHQBhn/skool-jan26.jpg" alt="Instructions">
-                </div>
-                <div class="instruction-grid">
-                    <div class="inst-card" data-aos="fade-up">
-                        <h4>01. Access ChatGPT</h4>
-                        <p>Create an OpenAI account. Log in. Start typing. The AI has your back, but the Signature 7 framework is the system that transforms you.</p>
-                    </div>
-                    <div class="inst-card" data-aos="fade-up" data-aos-delay="200">
-                        <h4>02. Free vs Plus</h4>
-                        <p>Free is great for starting. Plus ($20/mo) is for power users who demand speed, GPT-4 intelligence, and priority access during peak traffic.</p>
-                    </div>
-                    <div class="inst-card" data-aos="fade-up" data-aos-delay="400">
-                        <h4>03. The Revolution</h4>
-                        <p>Signature 7 isn't an art tool. It's an Operating System. Stop being a "Content Slave" to an algorithm that doesn't pay your mortgage.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FINAL CTA: THE AUDIT -->
-            <section style="padding: 150px 0; text-align: center; background: white; border: 2px solid var(--royal-gold);">
-                <div class="img-frame" style="max-width: 400px; margin: 0 auto 50px;">
-                    <img src="https://i.postimg.cc/65QrJgYd/skool-jan26.jpg" alt="Oracle Audit">
-                </div>
-                <h2 style="font-family: 'Playfair Display'; font-size: 3rem;">Signature 7 Strategic Oracle Audit</h2>
-                <p style="font-size: 1.3rem; color: #555; max-width: 600px; margin: auto;">Take the free Audit below for instant clarity. It costs you nothing to stop drowning in Time Poverty.</p>
-                <a href="https://ai.studio/apps/drive/1OaNfYUyhVjc3kUoEezgF6JqNFiuj4uAt?fullscreenApplet=true" target="_blank" class="btn-sovereign">Take the Free Audit Now</a>
-            </section>
-
-        </div>
-
-        <!-- FOOTER -->
-        <footer style="background: var(--void-black); color: #444; padding: 100px 0; text-align: center; letter-spacing: 5px; font-size: 0.8rem;">
-            &copy; 2026 GJ GROW & GLOW | SIGNATURE 7™ AI BOSS ACADEMY
-        </footer>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1200, once: true });
-
-        function unlock() {
-            const key = document.getElementById('accessCode').value;
-            if(key === "GLOW777") {
-                document.getElementById('gate').style.display = 'none';
-                document.getElementById('dashboard').style.display = 'block';
-                window.scrollTo(0,0);
-            } else {
-                alert("ACCESS DENIED. INVALID PASSKEY.");
-            }
-        }
-    </script>
-</body>
-</html>
+            border: 2px solid var(--royal-gold); color: var(--royal-gold); padding: 15px 50px;
