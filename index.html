@@ -6,41 +6,39 @@
     <title>GJ GROW & GLOW | THE SOVEREIGN IMPERIUM</title>
     
     <!-- Premium Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;400;700&family=Great+Vibes&display=swap" rel="stylesheet">
-    
-    <!-- Animation Library -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@200;400;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
-            --obsidian: #050505;
+            --obsidian: #000000;
             --royal-gold: #D4AF37;
             --luminous-gold: #FFD700;
-            --pearl: #fdfaf5;
+            --crimson-glow: #ff0033;
             --white: #ffffff;
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
-            background-color: var(--pearl);
-            color: var(--obsidian);
+            background-color: var(--obsidian);
+            color: var(--white);
             font-family: 'Montserrat', sans-serif;
             margin: 0; padding: 0;
             overflow-x: hidden;
             width: 100%;
         }
 
-        /* --- THE WOW GOLD DUST LAYER --- */
+        /* --- THE WOW GOLD DUST --- */
         #sparkles {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 5;
             background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-            opacity: 0.5; animation: sparkleDrift 40s linear infinite;
+            opacity: 0.6; animation: sparkleDrift 40s linear infinite;
         }
         @keyframes sparkleDrift { from { background-position: 0 0; } to { background-position: 1000px 1000px; } }
 
-        /* --- THE LUMINOUS GATE --- */
+        /* --- THE SECURITY GATE --- */
         #gate { 
             height: 100vh; width: 100%; display: flex; flex-direction: column; 
             justify-content: center; align-items: center; 
@@ -49,63 +47,82 @@
         }
         .gate-glow {
             position: absolute; width: 150vmax; height: 150vmax;
-            background: conic-gradient(from 0deg, transparent, var(--royal-gold), transparent 30%, transparent);
+            background: conic-gradient(from 0deg, transparent, var(--royal-gold), transparent 40%, transparent);
             animation: rotateGate 5s linear infinite; opacity: 0.2; z-index: 1;
         }
-        .gate-title { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 7rem); color: var(--white); text-transform: uppercase; letter-spacing: -2px; line-height: 0.8; z-index: 10; position: relative; }
-        .gate-title span { display: block; font-family: 'Great Vibes', cursive; color: var(--royal-gold); font-size: 0.4em; text-transform: none; letter-spacing: 5px; margin-bottom: -15px; }
-        .code-input { background: none; border: none; border-bottom: 2px solid var(--royal-gold); color: #fff; padding: 12px; text-align: center; font-size: 2rem; width: 280px; outline: none; margin: 40px 0; letter-spacing: 12px; z-index: 10; position: relative; }
-        .btn-auth { border: 1px solid var(--white); color: var(--white); padding: 15px 50px; text-transform: uppercase; letter-spacing: 5px; cursor: pointer; background: none; transition: 0.5s; z-index: 10; position: relative; }
-        .btn-auth:hover { background: var(--white); color: var(--obsidian); box-shadow: 0 0 50px rgba(255,255,255,0.2); }
+        .gate-content { z-index: 10; position: relative; padding: 20px; }
+        .gate-title { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 12vw, 8rem); color: var(--white); text-transform: uppercase; letter-spacing: -2px; line-height: 0.8; margin: 0; }
+        .gate-title span { display: block; font-family: 'Great Vibes', cursive; color: var(--royal-gold); font-size: 0.4em; letter-spacing: 5px; text-transform: none; margin-bottom: -15px; }
+        .code-input { background: none; border: none; border-bottom: 2px solid var(--royal-gold); color: #fff; padding: 12px; text-align: center; font-size: 2rem; width: 280px; outline: none; margin: 40px 0; letter-spacing: 12px; font-family: serif; }
+        .btn-auth { border: 1px solid var(--white); color: var(--white); padding: 15px 60px; text-transform: uppercase; letter-spacing: 5px; cursor: pointer; background: none; transition: 0.5s; z-index: 10; }
+        .btn-auth:hover { background: var(--white); color: var(--obsidian); box-shadow: 0 0 50px rgba(255,255,255,0.3); }
 
-        /* --- DASHBOARD UI --- */
+        /* --- DASHBOARD --- */
         #dashboard { display: none; width: 100%; position: relative; z-index: 10; }
-        
-        .container { width: 100%; max-width: 1200px; margin: auto; padding: 0 20px; }
+        .container { width: 100%; max-width: 1400px; margin: auto; padding: 0 20px; }
 
-        /* EDITORIAL HEADER */
-        .os-header { padding: 150px 0 100px; text-align: left; }
-        .os-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(4rem, 15vw, 10rem); line-height: 0.75; text-transform: uppercase; margin: 0; letter-spacing: -5px; }
-        .os-header span { color: var(--royal-gold); font-family: 'Great Vibes', cursive; font-size: 0.4em; letter-spacing: 2px; text-transform: none; display: block; margin-bottom: -20px; }
-        .status-line { color: var(--royal-gold); letter-spacing: 5px; font-size: 0.7rem; font-weight: 700; margin-top: 50px; text-transform: uppercase; border-left: 2px solid var(--royal-gold); padding-left: 20px; }
+        /* EDITORIAL LAYOUT */
+        .palace-header { padding: 150px 0 100px; text-align: left; border-bottom: 1px solid #222; }
+        .palace-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(4rem, 15vw, 10rem); line-height: 0.75; text-transform: uppercase; margin: 0; letter-spacing: -5px; }
+        .palace-header span { color: var(--royal-gold); font-family: 'Great Vibes', cursive; font-size: 0.45em; letter-spacing: 2px; text-transform: none; display: block; margin-bottom: -30px; }
+        .os-tag { color: var(--royal-gold); letter-spacing: 8px; font-size: 0.7rem; font-weight: 900; margin-top: 60px; text-transform: uppercase; border-left: 4px solid var(--royal-gold); padding-left: 20px; }
 
-        /* SECTIONS */
-        .section-header { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--obsidian); margin: 200px 0 60px; text-transform: uppercase; border-bottom: 1px solid #ddd; padding-bottom: 20px; text-align: left; letter-spacing: -2px; }
+        .manifesto { padding: 150px 0; display: grid; grid-template-columns: 1fr 1.5fr; gap: 100px; align-items: flex-start; }
+        .manifesto h2 { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--royal-gold); line-height: 1; margin: 0; }
+        .manifesto p { font-size: 1.5rem; line-height: 1.5; color: #ccc; font-weight: 200; }
 
-        /* 3D FLIP CARDS (16:9) */
-        .module-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 40px; }
-        .module-card { perspective: 2000px; height: 350px; margin-bottom: 50px; }
-        .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
+        /* PROTOCOL BOX */
+        .protocol-box { background: #080808; border: 1px solid #222; padding: 60px; margin-bottom: 150px; border-top: 10px solid var(--royal-gold); text-align: left; }
+        .protocol-box h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--white); margin-bottom: 30px; }
+        .protocol-box li { font-size: 1.1rem; color: #888; margin-bottom: 15px; list-style: none; border-left: 2px solid var(--royal-gold); padding-left: 20px; }
+
+        /* 16:9 FLIP CARDS */
+        .matrix-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 40px; }
+        .module-card { perspective: 2000px; height: 320px; width: 100%; margin-bottom: 40px; }
+        .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
         .module-card:hover .card-inner { transform: rotateY(180deg); }
-        .card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border: 1px solid #eee; background: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.02); overflow: hidden; }
-        .card-front img { width: 100%; height: 100%; object-fit: cover; }
-        .card-front h3 { position: absolute; bottom: 20px; left: 20px; color: #fff; font-family: 'Playfair Display', serif; font-size: 1.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); text-transform: uppercase; margin: 0; }
+        .card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border: 1px solid #111; overflow: hidden; background: #050505; }
+        .card-front img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        .card-front h3 { position: absolute; bottom: 20px; left: 25px; font-family: 'Playfair Display', serif; font-size: 2rem; color: #fff; text-shadow: 0 0 20px #000; margin: 0; }
 
-        .card-back { transform: rotateY(180deg); padding: 35px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 5px solid var(--royal-gold); }
+        .card-back { transform: rotateY(180deg); padding: 30px; display: flex; flex-direction: column; justify-content: center; text-align: left; border-left: 6px solid var(--royal-gold); }
         .card-back h4 { font-family: 'Playfair Display', serif; color: var(--royal-gold); font-size: 1.4rem; margin: 0 0 10px; text-transform: uppercase; }
-        .card-back p { font-size: 0.9rem; color: #666; line-height: 1.6; margin-bottom: 15px; }
+        
+        /* TRIPLE BUTTONS */
+        .btn-triple { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 15px; }
+        .btn-node { text-align: center; padding: 12px 5px; text-decoration: none; text-transform: uppercase; font-size: 0.6rem; font-weight: 900; letter-spacing: 1px; transition: 0.3s; border: 1px solid var(--royal-gold); color: var(--royal-gold); }
+        .btn-node:hover { background: var(--royal-gold); color: #000; }
+        .btn-black { background: var(--white); color: #000; border: none; }
 
-        /* BUTTONS */
-        .btn-group { display: flex; gap: 10px; }
-        .btn-action { flex: 1; text-align: center; padding: 12px; text-decoration: none; text-transform: uppercase; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; transition: 0.3s; border: 1px solid var(--obsidian); color: var(--obsidian); }
-        .btn-action:hover { background: var(--obsidian); color: #fff; }
-        .btn-gold { background: var(--royal-gold); color: #fff; border: none; }
+        /* WORKFORCE INTRO */
+        .intro-block { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; margin: 200px 0; }
+        .intro-img { border: 1px solid #222; padding: 10px; background: #050505; }
+        .intro-img img { width: 100%; display: block; }
+        .intro-text h2 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 20px; color: var(--white); }
+        .intro-text p { font-size: 1.3rem; line-height: 1.6; color: #666; font-weight: 200; }
 
-        /* LIST GRIDS (GPT & ASSISTANTS) */
-        .list-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .list-card { background: var(--white); padding: 30px; border: 1px solid #eee; text-align: left; border-top: 3px solid var(--royal-gold); }
-        .list-card img { width: 100%; height: 150px; object-fit: cover; margin-bottom: 15px; border: 1px solid #f9f9f9; }
-        .list-card h5 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin: 0 0 10px; color: var(--obsidian); }
-        .list-card a { color: var(--royal-gold); text-decoration: none; font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--royal-gold); }
+        /* LISTS */
+        .list-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; margin-bottom: 100px; }
+        .list-card { background: #080808; border: 1px solid #111; padding: 40px; border-top: 4px solid var(--royal-gold); transition: 0.4s; }
+        .list-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(212, 175, 55, 0.1); }
+        .list-card h5 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0 0 20px; color: var(--white); }
+        .list-card a { display: block; color: var(--royal-gold); text-decoration: none; font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px; }
 
-        /* FINAL DISPATCH */
-        .dispatch { padding: 150px 20px; background: var(--obsidian); color: #fff; text-align: center; margin-top: 150px; border-top: 10px solid var(--royal-gold); }
-        .dispatch h2 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 6rem); letter-spacing: -3px; margin: 0; line-height: 0.8; }
-        .dispatch p { color: var(--royal-gold); margin: 30px 0 60px; letter-spacing: 5px; text-transform: uppercase; font-size: 0.8rem; }
-        .glow-trigger { display: inline-block; padding: 25px 60px; margin: 10px; border: 1px solid var(--royal-gold); color: var(--royal-gold); text-decoration: none; text-transform: uppercase; letter-spacing: 5px; font-weight: 900; transition: 0.5s; font-size: 1rem; }
+        /* ELITE VAULT */
+        .elite-vault { background: var(--obsidian); border-top: 10px solid var(--royal-gold); padding: 150px 20px; text-align: center; }
+        .elite-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1100px; margin: auto; }
+        .elite-card { border: 1px solid var(--royal-gold); padding: 25px; position: relative; }
+        .elite-card img { width: 100%; height: 400px; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+        .elite-card:hover img { filter: grayscale(0%); }
+        .elite-card h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--royal-gold); margin: 30px 0 15px; }
+
+        /* DISPATCH HUB */
+        .dispatch { padding: 150px 20px; text-align: center; background: #000; border-top: 1px solid #222; }
+        .glow-trigger { display: inline-block; padding: 25px 60px; margin: 15px; border: 1px solid var(--royal-gold); color: var(--royal-gold); text-decoration: none; text-transform: uppercase; letter-spacing: 5px; font-weight: 900; transition: 0.5s; font-size: 1.1rem; }
         .glow-trigger:hover { background: var(--royal-gold); color: #000; box-shadow: 0 0 50px rgba(212, 175, 55, 0.4); }
 
         @keyframes rotateGate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @media (max-width: 768px) { .matrix-grid, .intro-block, .elite-grid { grid-template-columns: 1fr; } .palace-header h1 { font-size: 4rem; letter-spacing: -2px; } }
     </style>
 </head>
 <body>
@@ -119,35 +136,56 @@
             <h1 class="gate-title"><span>Signature 7</span>Imperium</h1>
             <input type="text" id="accessCode" class="code-input" placeholder="PASSKEY" onkeydown="if(event.key==='Enter') unlock()">
             <br>
-            <button class="btn-auth" onclick="unlock()">Authenticate Entry</button>
+            <button class="btn-auth" onclick="unlock()">Enter The Palace</button>
         </div>
     </div>
 
-    <!-- DASHBOARD -->
+    <!-- MAIN OS -->
     <div id="dashboard">
         <div class="container">
             
-            <header class="os-header">
+            <header class="palace-header">
                 <h1 data-aos="fade-right"><span>Signature 7</span>Imperium</h1>
-                <div class="status-line">SYSTEM STATUS: ARCHITECT AUTHENTICATED // 2026 EDITION</div>
+                <div class="os-tag">THE INDUSTRIAL OPERATING SYSTEM // 2026 EDITION</div>
             </header>
 
-            <!-- LOOM VIDEO -->
-            <div style="margin: 100px 0; border: 1px solid #ddd; padding: 10px; background: #fff;" data-aos="zoom-in">
-                <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/536837ecd5cb463ca593c983deea8bb1?hide_owner=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+            <!-- WELCOME MANIFESTO -->
+            <section class="manifesto">
+                <h2 data-aos="fade-up">The Transformation.</h2>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <p>Congratulations, Architect. You have entered the only space where luxury branding meets industrial automation. We have moved past information into <b>Deployment</b>.</p>
+                    <p style="margin-top: 30px;">Signature 7 resolves the hustle gap by installing an Industrial AI Workforce. You move from the laborer to the leader. Your vision, architected by the machine.</p>
+                </div>
+            </section>
+
+            <!-- VIDEO -->
+            <div style="margin: 100px 0; border: 1px solid #222; padding: 10px; background: #000;" data-aos="zoom-in">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/536837ecd5cb463ca593c983deea8bb1?hide_owner=true" frameborder="0" webkitallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
             </div>
 
-            <!-- SECTOR 01: SIGNATURES -->
+            <!-- PROTOCOL (HOW TO USE) -->
+            <section class="protocol-box" data-aos="fade-up">
+                <h3>The Command Protocol</h3>
+                <li>01. Activate your Access Key (GLOW777) to enter the Vault.</li>
+                <li>02. Flip any Signature Pillar to access your Workbook and Resources.</li>
+                <li>03. Launch the SaaS Tool for real-time industrial deployment.</li>
+                <li>04. Invoke the Assistants for specific business operations.</li>
+                <li>05. Archive your results in the Image Vaults.</li>
+            </section>
+
+            <!-- 01: SIGNATURE PILLARS (3 BUTTONS) -->
             <h2 class="section-header">01. Signature Pillars</h2>
-            <div class="module-grid">
-                <!-- S1-S7 -->
+            <div class="matrix-grid">
+                
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
                         <div class="card-front"><img src="https://i.postimg.cc/rz6tW1mb/skool-jan26.jpg"><h3>01. Clarity Core</h3></div>
-                        <div class="card-back"><h4>The Resolution</h4><p>Architect an unmistakable brand frequency.</p>
-                            <div class="btn-group">
-                                <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" class="btn-action">Workbook</a>
-                                <a href="https://signature-one-clarity-code-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-action btn-gold">Launch SaaS</a>
+                        <div class="card-back">
+                            <h4>The Resolution</h4><p>Architect brand frequency. Resolve positioning noise.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwKW1nygc/hqIGNGpD1PIViDGtaF1Igg/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://signature-one-clarity-code-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-black">Launch SaaS</a>
                             </div>
                         </div>
                     </div>
@@ -156,10 +194,12 @@
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
                         <div class="card-front"><img src="https://i.postimg.cc/gc7ymRzb/skool-jan26.jpg"><h3>02. Content Vault</h3></div>
-                        <div class="card-back"><h4>The Resolution</h4><p>Automated manufacturing of revenue assets.</p>
-                            <div class="btn-group">
-                                <a href="https://www.canva.com/design/DAGxGgX66qg/Xg1FKRGfzEh_U4l9LyzYBQ/edit" target="_blank" class="btn-action">Workbook</a>
-                                <a href="https://lyra-aesthetic-brand-post-architect-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-action btn-gold">Launch SaaS</a>
+                        <div class="card-back">
+                            <h4>The Resolution</h4><p>Automated asset production. Resolve content burnout.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxGgX66qg/Xg1FKRGfzEh_U4l9LyzYBQ/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwLRglTPs/N17akyt_OnoX1_2OwXmrFA/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://lyra-aesthetic-brand-post-architect-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-black">Launch SaaS</a>
                             </div>
                         </div>
                     </div>
@@ -168,10 +208,12 @@
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
                         <div class="card-front"><img src="https://i.postimg.cc/bvYLsh45/skool-jan26.jpg"><h3>03. Voice Lab</h3></div>
-                        <div class="card-back"><h4>The Resolution</h4><p>Codify your unique brand frequency at scale.</p>
-                            <div class="btn-group">
-                                <a href="https://www.canva.com/design/DAGxGwHm3Wk/WY0DZTngJ-3ZcGrYeln7lw/edit" target="_blank" class="btn-action">Workbook</a>
-                                <a href="https://voxia-the-brand-voice-lab-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-action btn-gold">Launch SaaS</a>
+                        <div class="card-back">
+                            <h4>The Resolution</h4><p>Codify DNA frequency. Resolve robotic AI output.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxGwHm3Wk/WY0DZTngJ-3ZcGrYeln7lw/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwLZUbaZs/wyzO5TvtbA_3xSAxjpOQvQ/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://voxia-the-brand-voice-lab-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-black">Launch SaaS</a>
                             </div>
                         </div>
                     </div>
@@ -180,10 +222,12 @@
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
                         <div class="card-front"><img src="https://i.postimg.cc/dVwjxFQq/skool-jan26.jpg"><h3>04. Proof Builder</h3></div>
-                        <div class="card-back"><h4>The Resolution</h4><p>Build a systematic fortress of trust.</p>
-                            <div class="btn-group">
-                                <a href="https://www.canva.com/design/DAGxHLvyoTc/rfwnGo1NjGUL_7GZG2cKGA/edit" target="_blank" class="btn-action">Workbook</a>
-                                <a href="https://valora-the-visual-proof-builder-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-action btn-gold">Launch SaaS</a>
+                        <div class="card-back">
+                            <h4>The Resolution</h4><p>Build trust on autopilot. Resolve authority gaps.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxHLvyoTc/rfwnGo1NjGUL_7GZG2cKGA/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwLpjLxNM/1b8oNfHGh0j32zxxtfqxSg/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://valora-the-visual-proof-builder-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-black">Launch SaaS</a>
                             </div>
                         </div>
                     </div>
@@ -192,10 +236,12 @@
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
                         <div class="card-front"><img src="https://i.postimg.cc/Nf71Tn6z/skool-jan26.jpg"><h3>05. Convertorium</h3></div>
-                        <div class="card-back"><h4>The Resolution</h4><p>High-conversion enrollment engines.</p>
-                            <div class="btn-group">
-                                <a href="https://www.canva.com/design/DAGxGwHm3Wk/WY0DZTngJ-3ZcGrYeln7lw/edit" target="_blank" class="btn-action">Workbook</a>
-                                <a href="https://signature-five-siren-the-convertor-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-action btn-gold">Launch SaaS</a>
+                        <div class="card-back">
+                            <h4>The Resolution</h4><p>Sovereign enrollment engines. Resolve manual sales.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxGwHm3Wk/WY0DZTngJ-3ZcGrYeln7lw/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwOnP0SJE/doxEzkuh6bauf7pc_S4Rnw/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://signature-five-siren-the-convertor-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-black">Launch SaaS</a>
                             </div>
                         </div>
                     </div>
@@ -204,10 +250,12 @@
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
                         <div class="card-front"><img src="https://i.postimg.cc/T1vD5jpK/skool-jan26.jpg"><h3>06. Rhythm OS</h3></div>
-                        <div class="card-back"><h4>The Resolution</h4><p>Automated workflows for total freedom.</p>
-                            <div class="btn-group">
-                                <a href="https://www.canva.com/design/DAGxMuPxnEs/P_Lqj7E5t6eszkJ29JzktQ/edit" target="_blank" class="btn-action">Workbook</a>
-                                <a href="https://syngia-the-rhythm-os-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-action btn-gold">Launch SaaS</a>
+                        <div class="card-back">
+                            <h4>The Resolution</h4><p>Automated scale habituation. Resolve fragmented operations.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxMuPxnEs/P_Lqj7E5t6eszkJ29JzktQ/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwOhBQyO8/0Fz_YhZ6SzCirmSDhqwTqg/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://syngia-the-rhythm-os-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-black">Launch SaaS</a>
                             </div>
                         </div>
                     </div>
@@ -216,26 +264,31 @@
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
                         <div class="card-front"><img src="https://i.postimg.cc/GmgTxnHs/skool-jan26.jpg"><h3>07. Mind Space</h3></div>
-                        <div class="card-back"><h4>The Resolution</h4><p>CEO-level focus and strategic innovation.</p>
-                            <div class="btn-group">
-                                <a href="https://www.canva.com/design/DAGxM_w1IEQ/MFGbt7GRwlecGyUb7rjIFw/edit" target="_blank" class="btn-action">Workbook</a>
-                                <a href="https://mina-the-mindspace-ritual-tool-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-action btn-gold">Launch SaaS</a>
+                        <div class="card-back">
+                            <h4>The Resolution</h4><p>Master strategic CEO focus. Resolve decision fatigue.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxM_w1IEQ/MFGbt7GRwlecGyUb7rjIFw/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwOpgy3Yo/lUEfN0g693hcizo7-tGckA/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://mina-the-mindspace-ritual-tool-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-black">Launch SaaS</a>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-            <!-- SECTOR 02: INDUSTRIAL SUITE -->
+            <!-- 02: INDUSTRIAL SUITE -->
             <h2 class="section-header">02. Industrial Suite</h2>
-            <div class="module-grid">
+            <div class="matrix-grid">
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
                         <div class="card-front"><img src="https://i.postimg.cc/Kc7KsM18/skool-jan26.jpg"><h3>Vivara Studio</h3></div>
-                        <div class="card-back"><h4>Visual Manufacturing</h4><p>Editorial production in seconds.</p>
-                            <div class="btn-group">
-                                <a href="https://the-vivara-studio-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-action">Studio</a>
-                                <a href="https://the-vivara-visual-cta-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-action btn-gold">CTA Gen</a>
+                        <div class="card-back">
+                            <h4>The Visual Suit</h4>
+                            <div class="btn-triple">
+                                <a href="https://the-vivara-studio-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node">Studio App</a>
+                                <a href="https://vivara-motionmuse-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node">Motion Muse</a>
+                                <a href="https://the-vivara-visual-cta-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-black">CTA Gen</a>
                             </div>
                         </div>
                     </div>
@@ -243,70 +296,88 @@
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
                         <div class="card-front"><img src="https://i.postimg.cc/pTyzzXWV/skool-jan26.jpg"><h3>Crystal Pin</h3></div>
-                        <div class="card-back"><h4>Pinterest Engine</h4><p>Evergreen lead generation node.</p>
-                            <a href="https://chatgpt.com/g/g-690e2196119c819189d9be811aa7e60f-crystal-pin" target="_blank" class="btn-action btn-gold">Activate GPT</a>
-                        </div>
+                        <div class="card-back"><h4>Pinterest Engine</h4><a href="https://chatgpt.com/g/g-690e2196119c819189d9be811aa7e60f-crystal-pin" target="_blank" class="btn-node btn-black">Activate Node</a></div>
                     </div>
                 </div>
             </div>
 
-            <!-- SECTOR 03: ASSISTANT FLEET -->
+            <!-- 03: ASSISTANT FLEET (INDIVIDUAL) -->
             <h2 class="section-header">03. The Assistant Fleet</h2>
-            <div class="list-grid" data-aos="fade-up">
-                <div class="list-card">
+            <div class="list-grid">
+                <div class="list-card" data-aos="fade-up">
                     <img src="https://i.postimg.cc/hGFcB2wD/skool-jan26.jpg">
-                    <h5>AI Assistants</h5>
-                    <p>Google AI Studio Operations Team.</p>
-                    <a href="https://ai.studio/apps/drive/1bH9WOmmJv28oc6GG1xpq0WppFQta-6Jx?fullscreenApplet=true" target="_blank">Access Fleet</a>
+                    <h5>AI Assistants (Studio)</h5>
+                    <a href="https://ai.studio/apps/drive/1bH9WOmmJv28oc6GG1xpq0WppFQta-6Jx?fullscreenApplet=true" target="_blank">Strategic Lead Hunter</a>
+                    <a href="https://ai.studio/apps/drive/1k83vACRUquZGqPft8Czgc7KZk00PPRyo?fullscreenApplet=true" target="_blank">Editorial Copywriter</a>
+                    <a href="https://ai.studio/apps/drive/1N6xNG6fxGUqWZ6IuGgYNJZVzYnj_lcPQ?fullscreenApplet=true" target="_blank">Revenue Architect</a>
+                    <a href="https://ai.studio/apps/drive/1FDx7ffxHRVGTsJq9KhPkglMOT3OuYTJc?fullscreenApplet=true" target="_blank">Offer Optimizer</a>
+                    <a href="https://ai.studio/apps/drive/173ayU-ygJK0sFtaOz2KEY2ed5I5IvGXN?fullscreenApplet=true" target="_blank">System Scaler</a>
                 </div>
-                <div class="list-card">
+                <div class="list-card" data-aos="fade-up">
                     <img src="https://i.postimg.cc/Hx9p3b6c/skool-jan26.jpg">
-                    <h5>GPT Specialists</h5>
-                    <p>12+ Niche-Specific Expert Bots.</p>
-                    <a href="https://chatgpt.com/g/g-683f50bce1fc8191a5841306e24de3f2-aesthetica" target="_blank">Access Squad</a>
-                </div>
-                <div class="list-card">
-                    <img src="https://i.postimg.cc/fbHsF3LK/skool_jan26.jpg">
-                    <h5>Queen Trio</h5>
-                    <p>Luna, Vega, Lyra.</p>
-                    <a href="https://chatgpt.com/g/g-67cece00df9c8191ac3eb3046f6f0070-luna-bo-b-tch-bot" target="_blank">Invoke Force</a>
-                </div>
-                <div class="list-card">
-                    <img src="https://i.postimg.cc/SxDHQBhn/skool_jan26.jpg">
-                    <h5>Alpha Trio</h5>
-                    <p>Ragnar, Ste, Max.</p>
-                    <a href="https://chatgpt.com/g/g-67e0180ceb888191af89c3a12a3c081f-alpha-ai-ragnar" target="_blank">Invoke Alpha</a>
+                    <h5>GPT Specialist Squad</h5>
+                    <a href="https://chatgpt.com/g/g-683f50bce1fc8191a5841306e24de3f2-aesthetica" target="_blank">Aesthetica</a>
+                    <a href="https://chatgpt.com/g/g-67ec1c7e2bfc8191a6ab8ef5b482329e-bella-branding" target="_blank">Bella Branding</a>
+                    <a href="https://chatgpt.com/g/g-680930365b5081919a48acbc39f6cbcb-foxy-roxy-hair-beauty-bot" target="_blank">Foxy Roxy</a>
+                    <a href="https://chatgpt.com/g/g-67ceed5b2a588191a5a53fa805b1821a-lyra-content-b-tch-bot" target="_blank">Lyra Content</a>
+                    <a href="https://chatgpt.com/g/g-67cece00df9c8191ac3eb3046f6f0070-luna-bo-b-tch-bot" target="_blank">Luna Boss</a>
+                    <a href="https://chatgpt.com/g/g-67ceea6081ac8191bb1ea7eade6a18d2-vega-social-b-tch-bot" target="_blank">Vega Social</a>
                 </div>
             </div>
 
-            <!-- SECTOR 04: IMAGE VAULTS -->
-            <h2 class="section-header">04. The Image Vaults</h2>
-            <div class="list-grid" data-aos="fade-up">
-                <div class="list-card"><h5>Vault 01</h5><a href="https://www.canva.com/design/DAG2KEm0Gjc/IqJ8eOhLFbqJ6vLI1LlMyw/edit" target="_blank">Open Vault</a></div>
-                <div class="list-card"><h5>Vault 02</h5><a href="https://www.canva.com/design/DAG2FVjqrrE/r81Xz5QsYkkOBmeWMAX38g/edit" target="_blank">Open Vault</a></div>
-                <div class="list-card"><h5>Vault 03</h5><a href="https://www.canva.com/design/DAG2FgRFjn8/BKd8jkBgHcLL21bUQcepRQ/edit" target="_blank">Open Vault</a></div>
-                <div class="list-card"><h5>Vault 04</h5><a href="https://www.canva.com/design/DAG2Fq4a5qA/CCFUAh8GtL2wU1BW1UDQBw/edit" target="_blank">Open Vault</a></div>
+            <!-- 04: INTRODUCTIONS -->
+            <div class="intro-block" data-aos="fade-right">
+                <div class="intro-img"><img src="https://i.postimg.cc/fbHsF3LK/skool_jan26.jpg"></div>
+                <div class="intro-text">
+                    <h2>The Queen Trio</h2>
+                    <p>Meet Luna, Vega, and Lyra. The powerhouse trio built for shatterproof confidence and market shattering energy. They don't just break ceilings; they destroy them.</p>
+                </div>
+            </div>
+
+            <div class="intro-block" style="direction: rtl;" data-aos="fade-left">
+                <div class="intro-img"><img src="https://i.postimg.cc/SxDHQBhn/skool_jan26.jpg"></div>
+                <div class="intro-text" style="direction: ltr;">
+                    <h2>The Alpha Trio</h2>
+                    <p>Ragnar, Ste, and Max. Coded with tactical masculine precision and veteran coaching logic. Mentors in machine form built for real strategy and zero excuse results.</p>
+                </div>
+            </div>
+
+            <!-- 05: IMAGE VAULTS -->
+            <h2 class="section-header">05. The Image Vaults</h2>
+            <div class="list-grid">
+                <div class="list-card"><h5>Luxury Collection</h5><a href="https://www.canva.com/design/DAG2KEm0Gjc/IqJ8eOhLFbqJ6vLI1LlMyw/edit" target="_blank">Open Vault 01</a><a href="https://www.canva.com/design/DAG2FVjqrrE/r81Xz5QsYkkOBmeWMAX38g/edit" target="_blank">Open Vault 02</a></div>
+                <div class="list-card"><h5>Crystal Series</h5><a href="https://www.canva.com/design/DAG2FgRFjn8/BKd8jkBgHcLL21bUQcepRQ/edit" target="_blank">Open Vault 03</a><a href="https://www.canva.com/design/DAG2Fq4a5qA/CCFUAh8GtL2wU1BW1UDQBw/edit" target="_blank">Open Vault 04</a></div>
+                <div class="list-card"><h5>Obsidian Series</h5><a href="https://www.canva.com/design/DAG0HvJpEls/08icUgoIQeIyMYjG_OMHsQ/edit" target="_blank">Open Vault 05</a><a href="https://www.canva.com/design/DAG07EuVIHY/2d7R9alkylCvovmuaLzWhQ/edit" target="_blank">Open Vault 06</a></div>
+            </div>
+
+            <!-- DISCLAIMER -->
+            <div class="protocol-box" style="margin-top: 150px; border-top-color: var(--white);" data-aos="zoom-in">
+                <h3>Sovereign Disclaimer</h3>
+                <p style="font-size: 1rem; color: #666; font-style: italic;">Signature 7 is an Industrial AI Infrastructure. By entering the Palace, you assume the role of Architect. We provide the labor force; you provide the vision. Access Denied to No One. We hold your hand until you fly.</p>
             </div>
 
         </div>
 
-        <!-- ACTION HUB -->
+        <!-- THE INDUSTRIAL DISPATCH -->
         <section class="dispatch">
             <h2 data-aos="fade-down">The Industrial Dispatch</h2>
-            <p>Direct Command Protocols</p>
-            <a href="https://gwenj694-droid.github.io/axiom.html/" target="_blank" class="glow-trigger">Build Strategy</a>
-            <a href="https://gwenj694-droid.github.io/argent-sovereign/" target="_blank" class="glow-trigger">Dispatch Assets</a>
-            <a href="https://gwenj694-droid.github.io/citadel/" target="_blank" class="glow-trigger">Secure Command</a>
+            <p>DIRECT COMMAND PROTOCOLS</p>
+            <a href="https://gwenj694-droid.github.io/axiom.html/" target="_blank" class="glow-trigger">Axiom Node</a>
+            <a href="https://gwenj694-droid.github.io/argent-sovereign/" target="_blank" class="glow-trigger">Argent Engine</a>
+            <a href="https://gwenj694-droid.github.io/citadel/" target="_blank" class="glow-trigger">Secure Citadel</a>
+            <a href="https://gwenj694-droid.github.io/sovereign-empire/" target="_blank" class="glow-trigger">Sovereign Empire</a>
             
             <div style="margin-top:100px;">
-                <h3 style="color:#fff; letter-spacing:5px; text-transform:uppercase; font-size:1.5rem;">Elite architect access</h3>
-                <a href="https://gwenj694-droid.github.io/signature7-boss/" target="_blank" class="glow-trigger" style="color:var(--royal-gold); border-color:#fff;">SIG7 Hands-Free Build</a>
-                <a href="https://studio.d-id.com/agents/share?id=v2_agt_0G60tK3J&utm_source=copy&key=WjI5dloyeGxMVzloZFhSb01ud3hNREV6TXpnMU16WTNNakF3TVRjM01EUTJOemc2Tm10UVZGazFObkZEWVdRd2RVOXlRV3RHTlRWVg==" target="_blank" class="glow-trigger" style="color:var(--royal-gold); border-color:#fff;">The 4 Hybrids Session</a>
+                <h3 style="color:var(--royal-gold); letter-spacing:10px; font-weight:900;">ELITE ACCESS</h3>
+                <a href="https://gwenj694-droid.github.io/signature7-boss/" target="_blank" class="glow-trigger" style="border-color:var(--white); color:var(--white);">SIG7 Elite Build</a>
+                <a href="https://studio.d-id.com/agents/share?id=v2_agt_0G60tK3J&utm_source=copy&key=WjI5dloyeGxMVzloZFhSb01ud3hNREV6TXpnMU16WTNNakF3TVRjM01EUTJOemc2Tm10UVZGazFObkZEWVdRd2RVOXlRV3RHTlRWVg==" target="_blank" class="glow-trigger" style="border-color:var(--white); color:var(--white);">Hybrids Live Chat</a>
             </div>
+
+            <div style="color:var(--royal-gold); margin-top:100px; letter-spacing:10px; font-weight:900; font-size:1.5rem; text-shadow: 0 0 20px var(--royal-gold);">JOIN OUR MOVEMENT TODAY</div>
         </section>
 
-        <footer style="text-align:center; padding:100px 0; color:#ddd; letter-spacing:10px; font-size:0.7rem; background:#000;">
-            JOIN THE MOVEMENT TODAY // &copy; 2026 SIGNATURE 7
+        <footer style="text-align:center; padding:100px 0; color:#222; letter-spacing:5px; font-size:0.6rem; background:#000;">
+            &copy; 2026 GJ GROW & GLOW | SIGNATURE 7
         </footer>
     </div>
 
@@ -319,7 +390,7 @@
                 document.getElementById('dashboard').style.display = 'block';
                 window.scrollTo(0,0);
                 AOS.init({ duration: 1200, once: true });
-            } else { alert("ACCESS DENIED."); }
+            } else { alert("ACCESS DENIED."); document.getElementById('accessCode').value = ""; }
         }
     </script>
 </body>
