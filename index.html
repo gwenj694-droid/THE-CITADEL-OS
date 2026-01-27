@@ -57,7 +57,7 @@
         .btn-auth { border: 2px solid var(--crimson); color: var(--crimson); padding: 18px 60px; text-transform: uppercase; letter-spacing: 5px; cursor: pointer; background: none; transition: 0.5s; font-weight: 700; z-index: 2; }
         .btn-auth:hover { background: var(--crimson); color: white; box-shadow: 0 0 40px var(--crimson); }
 
-        /* --- MAIN DASHBOARD --- */
+        /* --- DASHBOARD --- */
         #dashboard { display: none; }
         .os-header { background: var(--void-black); padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--royal-gold); position: relative; z-index: 10; }
         .os-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 5vw, 2.5rem); text-transform: uppercase; letter-spacing: 10px; color: #fff; margin: 0; }
@@ -66,7 +66,7 @@
         .container { width: 100%; max-width: 1200px; margin: auto; padding: 40px 20px; position: relative; z-index: 11; }
 
         /* SECTIONS */
-        .section-box { padding: 80px 0; border-bottom: 1px solid #eee; }
+        .section-box { padding: 100px 0; border-bottom: 1px solid #eee; }
         .welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 40px; }
         .img-frame { border: 1px solid var(--royal-gold); padding: 15px; background: white; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
         .img-frame img { width: 100%; display: block; }
@@ -95,7 +95,7 @@
 
         .btn-row { display: flex; gap: 10px; margin-top: 20px; }
         .btn-act { flex: 1; text-align: center; padding: 15px; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; transition: 0.4s; }
-        .btn-gpt { background: var(--crimson); color: white; }
+        .btn-gpt { background: var(--crimson); color: white; border: none; }
         .btn-saas { background: var(--void-black); color: var(--royal-gold); border: 1px solid var(--royal-gold); }
 
         .disclaimer { background: var(--void-black); color: #444; padding: 80px 40px; text-align: center; border-top: 5px solid var(--royal-gold); }
@@ -138,14 +138,13 @@
                 </div>
             </section>
 
-            <!-- FOUNDER FLIP CARD -->
+            <!-- FOUNDER SECTION (FIXED IMAGE) -->
             <section class="section-box welcome-grid">
                 <div class="flip-card" data-aos="flip-right">
                     <div class="card-inner">
                         <div class="card-front">
-                            <!-- FIXED FOUNDER IMAGE LINK -->
-                            <img src="https://i.postimg.cc/wvHx8K5G/skool-jan26.jpg" alt="The Founder">
-                            <h3>About Your Founder</h3>
+                            <img src="https://i.postimg.cc/wvHx8K5G/skool_jan26.jpg" alt="Your Founder">
+                            <h3>Meet Gwen</h3>
                             <p style="font-size: 0.7rem; color: var(--royal-gold); margin-top: 10px;">HOVER TO UNVEIL PHILOSOPHY</p>
                         </div>
                         <div class="card-back">
@@ -163,7 +162,7 @@
             <!-- AI BO$$ EMPIRE (LADIES) -->
             <section class="section-box welcome-grid" style="direction: rtl;">
                 <div class="img-frame" data-aos="fade-left">
-                    <img src="https://i.postimg.cc/fbHsF3LK/skool-jan26.jpg" alt="Ladies Empire">
+                    <img src="https://i.postimg.cc/fbHsF3LK/skool-jan26.jpg" alt="AI BO$$ Empire">
                 </div>
                 <div class="text-box" style="direction: ltr;" data-aos="fade-right">
                     <h2>AI BO$$ Empire</h2>
@@ -187,16 +186,16 @@
 
             <div class="module-grid">
                 
-                <!-- PILLAR 1: CLARITY CORE -->
+                <!-- SIGNATURE 1 -->
                 <div class="module-card" data-aos="zoom-in">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="https://i.postimg.cc/rz6tW1mb/skool-jan26.jpg" alt="Signature One">
+                            <img src="https://i.postimg.cc/x8sJsjmQ/skool-jan26.jpg" alt="Pillar 1">
                             <h3>01. Clarity Core</h3>
                         </div>
                         <div class="card-back">
                             <h4>Clarity Core</h4>
-                            <h5>Brand Identity + Positioning</h5>
+                            <h5>The Source Code</h5>
                             <p>Resolve niche paralysis. Lock in your foundation. Without clarity, you confuse. With clarity, every word hits harder.</p>
                             <p><b>01:</b> <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" style="color:var(--crimson);">Download Workbook</a></p>
                             <p><b>02:</b> <a href="https://www.canva.com/design/DAGwKW1nygc/hqIGNGpD1PIViDGtaF1Igg/edit" target="_blank" style="color:var(--crimson);">Open Resource Doc</a></p>
@@ -208,11 +207,11 @@
                     </div>
                 </div>
 
-                <!-- PILLAR 2: CONTENT VAULT -->
+                <!-- SIGNATURE 2 -->
                 <div class="module-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="https://i.postimg.cc/SNpRFvq1/skool-jan26.jpg" alt="Signature Two">
+                            <img src="https://i.postimg.cc/SNpRFvq1/skool-jan26.jpg" alt="Pillar 2">
                             <h3>02. Content Vault</h3>
                         </div>
                         <div class="card-back">
@@ -228,6 +227,9 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- SIGNATURE 3 PLACEHOLDER -->
+                <div id="sig3-slot"></div>
 
             </div>
 
