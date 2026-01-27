@@ -14,8 +14,10 @@
     <style>
         :root {
             --black: #050505;
-            --imperial-red: #E60000;
+            --imperial-red: #8B0000;
+            --luminous-crimson: #E60000;
             --royal-gold: #D4AF37;
+            --luminous-gold: #ffdf00;
             --silk-cream: #fdfaf5;
         }
 
@@ -28,18 +30,18 @@
             margin: 0; padding: 0;
             overflow-x: hidden;
             width: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
         }
 
-        /* --- SPARKLING GOLD LAYER --- */
+        /* --- THE FLOATING GOLD BUBBLES / SPARKLES --- */
         .sparkle-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 5;
-            opacity: 0.4; animation: sparkleDrift 30s linear infinite;
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.5; animation: sparkleDrift 40s linear infinite;
         }
         @keyframes sparkleDrift { from { background-position: 0 0; } to { background-position: 1000px 1000px; } }
 
-        /* --- THE ROTATING LUMINOUS GATE --- */
+        /* --- THE LUMINOUS ROTATING GATE --- */
         #gate { 
             height: 100vh; width: 100%; display: flex; flex-direction: column; 
             justify-content: center; align-items: center; 
@@ -49,77 +51,79 @@
         .gate-glow {
             position: absolute; width: 150vmax; height: 150vmax;
             background: conic-gradient(from 0deg, transparent, var(--royal-gold), transparent 30%, transparent);
-            animation: rotateGate 4s linear infinite; opacity: 0.2; z-index: 1;
+            animation: rotateGate 5s linear infinite; opacity: 0.3; z-index: 1;
         }
         .gate-content { z-index: 10; position: relative; padding: 20px; width: 100%; }
-        .gate-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 10vw, 4.5rem); color: var(--royal-gold); text-transform: uppercase; letter-spacing: 12px; text-shadow: 0 0 20px var(--royal-gold); margin: 0; }
-        .code-input { background: none; border: none; border-bottom: 2px solid var(--royal-gold); color: #fff; padding: 12px; text-align: center; font-size: 1.6rem; width: 280px; outline: none; margin: 40px 0; letter-spacing: 10px; }
-        .btn-auth { border: 2px solid var(--imperial-red); color: var(--imperial-red); padding: 15px 45px; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; background: none; transition: 0.5s; font-weight: 700; font-size: 0.9rem; }
-        .btn-auth:hover { background: var(--imperial-red); color: white; }
+        .gate-title { 
+            font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 10vw, 5rem); 
+            color: var(--royal-gold); text-transform: uppercase; letter-spacing: 15px; 
+            text-shadow: 0 0 30px var(--royal-gold); margin: 0;
+        }
+        .code-input { 
+            background: none; border: none; border-bottom: 3px solid var(--royal-gold); 
+            color: #fff; padding: 12px; text-align: center; font-size: 1.8rem; 
+            width: 300px; outline: none; margin: 40px 0; letter-spacing: 10px; font-family: serif;
+        }
+        .btn-auth { 
+            border: 2px solid var(--luminous-crimson); color: var(--luminous-crimson); padding: 15px 50px; 
+            text-transform: uppercase; letter-spacing: 4px; cursor: pointer; background: none; 
+            transition: 0.5s; font-weight: 900; font-size: 1rem;
+        }
+        .btn-auth:hover { background: var(--luminous-crimson); color: white; box-shadow: 0 0 40px var(--luminous-crimson); }
 
         /* --- DASHBOARD --- */
-        #dashboard { display: none; width: 100%; }
-        .os-header { background: var(--black); padding: 40px 15px; text-align: center; border-bottom: 5px solid var(--royal-gold); }
-        .os-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 5vw, 2.2rem); text-transform: uppercase; letter-spacing: 6px; color: #fff; margin: 0; }
-        .os-header span { font-family: 'Great Vibes', cursive; color: var(--royal-gold); font-size: clamp(1.6rem, 5vw, 2.2rem); display: block; }
+        #dashboard { display: none; width: 100%; position: relative; z-index: 10; }
+        
+        .os-header { background: var(--black); padding: 50px 15px; text-align: center; border-bottom: 5px solid var(--royal-gold); }
+        .os-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 5vw, 2.5rem); text-transform: uppercase; letter-spacing: 8px; color: #fff; margin: 0; text-shadow: 0 0 10px var(--royal-gold); }
+        .os-header span { font-family: 'Great Vibes', cursive; color: var(--royal-gold); font-size: clamp(1.8rem, 5vw, 2.5rem); display: block; margin-top: 5px; }
 
-        .container { width: 100%; max-width: 1200px; margin: auto; padding: 20px 15px; }
+        .container { width: 100%; max-width: 1200px; margin: auto; padding: 40px 15px; }
 
-        /* IMAGES & BOXES FIX */
-        .img-frame { 
-            border: 1px solid var(--royal-gold); 
-            background: white; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-            width: 100%; 
-            aspect-ratio: 16 / 9; /* Professional ratio */
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* IMAGE VAULT FRAMING */
+        .img-vault { 
+            border: 1px solid var(--royal-gold); padding: 10px; background: white; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); width: 100%; 
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
-        .img-frame img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; /* This forces the image to fit the box perfectly */
-        }
-
-        /* RESPONSIVE GRID FOR 24 MODULES */
-        .module-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-            gap: 25px; 
-            margin: 50px 0; 
-        }
-
-        /* FLIP CARD FIX */
-        .module-card { perspective: 1000px; height: 500px; width: 100%; }
-        .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer; }
-        .module-card:hover .card-inner, .module-card:active .card-inner { transform: rotateY(180deg); }
-        .card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: white; border: 1px solid #ddd; padding: 15px; border-radius: 4px; }
-        .card-front { border-top: 5px solid var(--royal-gold); display: flex; flex-direction: column; }
-        .card-front .img-wrap { flex: 1; overflow: hidden; border: 1px solid #eee; }
-        .card-front .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-        .card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-top: 15px; text-transform: uppercase; color: var(--black); }
-
-        .card-back { transform: rotateY(180deg); text-align: left; padding: 25px; border-top: 5px solid var(--imperial-red); display: flex; flex-direction: column; justify-content: center; }
-        .card-back h4 { font-family: 'Playfair Display', serif; color: #8B0000; font-size: 1.2rem; margin: 0 0 10px; text-transform: uppercase; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px; }
-        .card-back p { font-size: 0.85rem; line-height: 1.5; color: #444; margin-bottom: 10px; }
-
-        .btn-act { display: block; text-align: center; padding: 10px; text-decoration: none; text-transform: uppercase; font-size: 0.7rem; font-weight: 900; letter-spacing: 1px; transition: 0.3s; margin-top: 8px; }
-        .btn-gpt { background: var(--imperial-red); color: white; }
-        .btn-saas { background: var(--black); color: var(--royal-gold); border: 1px solid var(--royal-gold); }
+        .img-vault img { width: 100%; height: auto; max-height: 500px; object-fit: contain; }
 
         /* SECTIONS */
-        .section-box { padding: 40px 0; border-bottom: 1px solid #eee; width: 100%; }
-        .welcome-grid { display: flex; flex-direction: column; gap: 30px; align-items: center; }
-        @media (min-width: 768px) { .welcome-grid { flex-direction: row; text-align: left; } .welcome-grid.reverse { flex-direction: row-reverse; } }
+        .section-box { padding: 80px 0; border-bottom: 1px solid #eee; width: 100%; }
+        .flex-row { display: flex; flex-direction: column; gap: 50px; align-items: center; }
+        @media (min-width: 768px) {
+            .flex-row { flex-direction: row; text-align: left; }
+            .flex-row.reverse { flex-direction: row-reverse; }
+        }
 
-        .text-box { flex: 1; }
-        .text-box h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--imperial-red); text-transform: uppercase; margin-bottom: 15px; }
+        .text-content { flex: 1; }
+        .text-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--luminous-crimson); text-transform: uppercase; margin-bottom: 25px; text-shadow: 1px 1px 0px rgba(0,0,0,0.05); }
+        .text-content p { font-size: 1.1rem; line-height: 1.8; color: #333; margin-bottom: 20px; }
 
-        .filter-section { background: #000; padding: 60px 0; border-top: 1px solid #1a1a1a; }
-        .filter-box { background: #fff; color: #000; padding: 25px; border-radius: 4px; margin-bottom: 20px; text-align: left; }
-        .filter-q { font-family: 'Playfair Display', serif; font-style: italic; color: #777; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 10px; }
+        /* THE 7 SIGNATURES GRID */
+        .module-grid { display: grid; grid-template-columns: 1fr; gap: 35px; margin: 60px 0; width: 100%; }
+        @media (min-width: 992px) { .module-grid { grid-template-columns: 1fr 1fr; } }
+
+        .module-card { perspective: 1500px; height: 650px; width: 100%; max-width: 500px; margin: 0 auto; }
+        .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
+        .module-card:hover .card-inner { transform: rotateY(180deg); }
+        
+        .card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: white; border: 1px solid #ddd; padding: 20px; border-radius: 4px; }
+        .card-front { border-top: 6px solid var(--royal-gold); display: flex; flex-direction: column; }
+        .card-front .img-wrap { flex: 1; overflow: hidden; border: 1px solid #eee; }
+        .card-front .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 20px; text-transform: uppercase; color: var(--black); text-shadow: 1px 1px 0px rgba(0,0,0,0.05); }
+
+        .card-back { transform: rotateY(180deg); text-align: left; padding: 35px; border-top: 6px solid var(--luminous-crimson); display: flex; flex-direction: column; overflow-y: auto; }
+        .card-back h4 { font-family: 'Playfair Display', serif; color: var(--imperial-red); font-size: 1.6rem; margin-bottom: 10px; text-transform: uppercase; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
+        .card-back p { font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 15px; }
+
+        .btn-act { display: block; text-align: center; padding: 15px; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; transition: 0.4s; margin-top: 10px; }
+        .btn-gpt { background: var(--luminous-crimson); color: white; }
+        .btn-saas { background: var(--black); color: var(--royal-gold); border: 1px solid var(--royal-gold); }
+
+        .footer-os { background: var(--black); color: #555; padding: 80px 20px; text-align: center; border-top: 5px solid var(--royal-gold); }
+        .glow-text { color: var(--royal-gold); text-shadow: 0 0 10px var(--royal-gold); font-weight: bold; letter-spacing: 5px; }
 
         @keyframes rotateGate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     </style>
@@ -128,53 +132,78 @@
 
     <div class="sparkle-container"></div>
 
+    <!-- LUMINOUS ROTATING GATE -->
     <div id="gate">
         <div class="gate-glow"></div>
         <div class="gate-content">
             <h1 class="gate-title">Signature 7</h1>
-            <p style="color:var(--imperial-red); letter-spacing:5px; font-size:0.8rem; font-weight:900;">THE SOVEREIGN IMPERIUM</p>
+            <p style="color:var(--luminous-crimson); letter-spacing:8px; font-size:0.8rem; font-weight:900; margin-top: 20px;">THE SOVEREIGN IMPERIUM</p>
             <input type="text" id="accessCode" class="code-input" placeholder="PASSKEY" onkeydown="if(event.key==='Enter') unlock()">
             <br>
             <button class="btn-auth" onclick="unlock()">Authenticate</button>
         </div>
     </div>
 
+    <!-- MAIN OS -->
     <div id="dashboard">
         <header class="os-header">
             <h1>The Operating System</h1>
-            <span>GJ Grow & Glow | Signature 7™</span>
+            <span>Signature 7™ | The Sovereign Imperium</span>
         </header>
 
         <div class="container">
             
             <!-- WELCOME -->
             <section class="section-box" style="text-align: center;">
-                <h2 style="font-family: 'Playfair Display'; font-size: 2.2rem; color: var(--imperial-red); text-transform: uppercase;">✨ Welcome Architect ✨</h2>
-                <div class="img-frame" style="max-width: 600px; margin: 20px auto;">
+                <h2 style="font-family: 'Playfair Display'; font-size: 3rem; color: var(--luminous-crimson); text-transform: uppercase;">✨ Welcome Architect ✨</h2>
+                <div class="img-vault" style="max-width: 600px; margin: 40px auto;">
                     <img src="https://i.postimg.cc/wTxtRNmZ/skool-jan26.jpg" alt="Welcome">
                 </div>
-                <p style="max-width: 800px; font-size: 1rem; line-height: 1.6; margin: 0 auto; color: #444;">
-                    Congratulations. You have entered the space where luxury branding meets industrial automation.
+                <p style="max-width: 800px; font-size: 1.2rem; line-height: 1.8; margin: 0 auto;">
+                    Congratulations. You have entered the space where luxury branding meets industrial automation. I am Gwen, and I created this Imperium to provide you with the tools to build an iconic brand.
                 </p>
-                <div style="margin-top: 30px; border: 4px double var(--royal-gold); padding: 5px; background: #000; max-width: 700px; margin-left:auto; margin-right:auto;">
+                <div style="margin-top: 50px; border: 4px double var(--royal-gold); padding: 10px; background: #000; max-width: 850px; margin-left:auto; margin-right:auto;">
                     <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/536837ecd5cb463ca593c983deea8bb1?hide_owner=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
                 </div>
             </section>
 
-            <!-- MANIFESTO -->
+            <!-- FOUNDER MANIFESTO -->
             <section class="section-box">
-                <div style="background: white; border: 1px solid var(--royal-gold); border-left: 8px solid var(--imperial-red); padding: 30px; text-align: left;">
-                    <h3 style="font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 15px; text-transform: uppercase;">Built for Legacy</h3>
-                    <p style="font-size: 1rem; color: #444;">We help ambitious leaders command their market through high-end branding and AI-powered labor. Move from laborer to Architect.</p>
+                <div style="background: white; border: 1px solid var(--royal-gold); border-left: 10px solid var(--luminous-crimson); padding: 50px; text-align: left; box-shadow: 0 15px 40px rgba(0,0,0,0.05);">
+                    <h3 style="font-family: 'Playfair Display'; font-size: 2.2rem; margin-bottom: 25px; text-transform: uppercase; color: var(--black);">Built for Legacy</h3>
+                    <p style="font-size: 1.2rem; color: #444; line-height: 1.8;">After years of watching entrepreneurs get lost in content chaos, I built the AI BOSS to provide clarity on repeat. My philosophy: Your brand should feel unforgettable, your systems effortless, and your offers irresistible. Move from laborer to Architect.</p>
                 </div>
             </section>
 
-            <!-- THE 7 SIGNATURES MATRIX -->
-            <center><h2 class="section-header">The 7 Signatures</h2></center>
+            <!-- AI BO$$ EMPIRE (LADIES) -->
+            <section class="section-box flex-row reverse">
+                <div class="img-vault" data-aos="fade-left">
+                    <img src="https://i.postimg.cc/fbHsF3LK/skool-jan26.jpg" alt="Ladies Empire">
+                </div>
+                <div class="text-content" data-aos="fade-right">
+                    <h2>AI BO$$ Empire</h2>
+                    <p>Welcome to a space where moves are fierce and energy is sovereign. <b>LUNA, VEGA, and LYRA</b> have stepped into the Imperium where glass ceilings are shattered. Identity first. Results second.</p>
+                </div>
+            </section>
+
+            <!-- THE ALPHA ERA (MEN) -->
+            <section class="section-box flex-row">
+                <div class="img-vault" data-aos="fade-right">
+                    <img src="https://i.postimg.cc/SxDHQBhn/skool-jan26.jpg" alt="Alpha Era">
+                </div>
+                <div class="text-content" data-aos="fade-left">
+                    <h2>The Alpha Era</h2>
+                    <p>Built Different. Mentors in machine form. Coded with tactical precision to build empires with no excuses. This is the future of digital mentorship.</p>
+                    <p style="color: var(--royal-gold); font-weight: 900; letter-spacing: 3px;">✦ RAGNAR ✦ STE ✦ MAX</p>
+                </div>
+            </section>
+
+            <center><h2 style="font-family: 'Playfair Display'; font-size: 3.5rem; text-transform: uppercase; margin: 120px 0; border-bottom: 2px solid var(--royal-gold); display: inline-block; padding-bottom: 10px;">The 7 Signatures</h2></center>
+
             <div class="module-grid">
                 
                 <!-- S1 -->
-                <div class="module-card" data-aos="fade-up">
+                <div class="module-card" data-aos="zoom-in">
                     <div class="card-inner">
                         <div class="card-front">
                             <div class="img-wrap"><img src="https://i.postimg.cc/x8sJsjmQ/skool_jan26.jpg"></div>
@@ -182,18 +211,19 @@
                         </div>
                         <div class="card-back">
                             <h4>Clarity Core</h4>
-                            <p>Architect an unmistakable brand frequency. Resolves niche paralysis.</p>
-                            <p><b>01:</b> <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" style="color:var(--imperial-red);">Download Workbook</a></p>
+                            <p>Architect an unmistakable brand frequency. Resolves niche paralysis and weak positioning.</p>
+                            <p><b>01:</b> <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" style="color:var(--luminous-crimson); font-weight: bold;">Download Workbook</a></p>
+                            <p><b>02:</b> <a href="https://www.canva.com/design/DAGwKW1nygc/hqIGNGpD1PIViDGtaF1Igg/edit" target="_blank" style="color:var(--luminous-crimson); font-weight: bold;">Open Resource Doc</a></p>
                             <div class="btn-row">
                                 <a href="https://chatgpt.com/g/g-68a0d9fee18881918deba7940887c948-signature-one-clarity-core" target="_blank" class="btn-act btn-saas">GPT Bot</a>
-                                <a href="https://signature-one-clarity-code-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-gpt">SaaS Tool</a>
+                                <a href="https://signature-one-clarity-code-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-gpt">Activate Aurelia</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- S2 -->
-                <div class="module-card" data-aos="fade-up">
+                <div class="module-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="card-inner">
                         <div class="card-front">
                             <div class="img-wrap"><img src="https://i.postimg.cc/SNpRFvq1/skool_jan26.jpg"></div>
@@ -201,44 +231,33 @@
                         </div>
                         <div class="card-back">
                             <h4>Content Vault</h4>
-                            <p>Automated manufacturing of scroll-stopping assets. Resolves content burnout.</p>
-                            <p><b>01:</b> <a href="https://www.canva.com/design/DAGxGgX66qg/Xg1FKRGfzEh_U4l9LyzYBQ/edit" target="_blank" style="color:var(--imperial-red);">Download Workbook</a></p>
+                            <p>Automated manufacturing of scroll-stopping assets. Resolves content burnout instantly.</p>
+                            <p><b>01:</b> <a href="https://www.canva.com/design/DAGxGgX66qg/Xg1FKRGfzEh_U4l9LyzYBQ/edit" target="_blank" style="color:var(--luminous-crimson); font-weight: bold;">Download Workbook</a></p>
+                            <p><b>02:</b> <a href="https://www.canva.com/design/DAGwLRglTPs/N17akyt_OnoX1_2OwXmrFA/edit" target="_blank" style="color:var(--luminous-crimson); font-weight: bold;">Open Resource Doc</a></p>
                             <div class="btn-row">
                                 <a href="https://chatgpt.com/g/g-68a0db753e5881919f35498e17f49734-signature-two-content-vault" target="_blank" class="btn-act btn-saas">GPT Bot</a>
-                                <a href="https://lyra-aesthetic-brand-post-architect-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-gpt">SaaS Tool</a>
+                                <a href="https://lyra-aesthetic-brand-post-architect-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-gpt">Activate Lyra</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- PLACEHOLDERS FOR REMAINING 22 MODULES (Example structure) -->
-                <!-- Duplicate the card above to fill all 24 slots -->
-
             </div>
 
-            <!-- INDUSTRIAL SUITE -->
-            <center><h2 class="section-header">The Industrial Suite</h2></center>
-            <div class="module-grid">
-                <div class="ind-card" data-aos="fade-up"><img src="https://i.postimg.cc/Kc7KsM18/skool_jan26.jpg"><h3>Vivara Studio</h3><p>Elite Production</p></div>
-                <div class="ind-card" data-aos="fade-up"><img src="https://i.postimg.cc/pTyzzXWV/skool-jan26.jpg"><h3>Crystal Pin</h3><p>Pinterest Node</p></div>
-                <div class="ind-card" data-aos="fade-up"><img src="https://i.postimg.cc/WphnvwJn/skool-jan26.jpg"><h3>Faceless Frequency</h3><p>Stealth Brand</p></div>
-            </div>
+            <!-- AUDIT -->
+            <section style="padding: 100px 0; text-align: center; border-top: 2px solid var(--royal-gold);">
+                <div class="img-vault" style="max-width: 400px; margin: 0 auto 40px;">
+                    <img src="https://i.postimg.cc/65QrJgYd/skool-jan26.jpg" alt="Audit">
+                </div>
+                <h2 style="font-family: 'Playfair Display'; font-size: 2.8rem; color: var(--black);">Strategic Oracle Audit</h2>
+                <a href="https://ai.studio/apps/drive/1OaNfYUyhVjc3kUoEezgF6JqNFiuj4uAt?fullscreenApplet=true" target="_blank" class="btn-act btn-gpt" style="max-width: 320px; margin: 40px auto; padding: 25px; font-size: 1rem;">Take the Free Audit</a>
+            </section>
         </div>
 
-        <section class="filter-section">
-            <div class="container">
-                <div class="filter-container">
-                    <div class="filter-box" data-aos="fade-up"><p class="filter-q">Investment?</p><p class="filter-a"><b>$47 USD.</b> Activation fee for full access.</p></div>
-                    <div class="filter-box" data-aos="fade-up"><p class="filter-q">Our Commitment?</p><p class="filter-a"><b>Sovereign Support.</b> We hold your hand until you fly.</p></div>
-                </div>
-                <center style="margin-top:40px;">
-                    <a href="https://bossupwithgj.store/shop/241db709-d4cb-434b-84c8-5fe675675dd5" class="btn-auth" style="background:#fff; color:#000; border:none; padding:20px 60px;">Board The System</a>
-                    <div style="color:var(--royal-gold); margin-top:40px; letter-spacing:4px; font-weight:bold;">JOIN OUR MOVEMENT TODAY</div>
-                </center>
-            </div>
-        </section>
-        
-        <footer style="text-align:center; padding:60px 0; background:#000; color:#444; font-size:0.7rem; letter-spacing:3px;">&copy; 2026 GJ GROW & GLOW | SIGNATURE 7™</footer>
+        <footer class="footer-os">
+            <p>&copy; 2026 GJ GROW & GLOW | SIGNATURE 7™ THE SOVEREIGN IMPERIUM</p>
+            <div class="glow-text" style="margin-top: 20px;">JOIN OUR MOVEMENT TODAY</div>
+        </footer>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -249,8 +268,8 @@
                 document.getElementById('gate').style.display = 'none';
                 document.getElementById('dashboard').style.display = 'block';
                 window.scrollTo(0,0);
-                AOS.init({ duration: 800, once: true });
-            } else { alert("ACCESS DENIED."); }
+                AOS.init({ duration: 1000, once: true });
+            } else { alert("ACCESS DENIED."); document.getElementById('accessCode').value = ""; }
         }
     </script>
 </body>
