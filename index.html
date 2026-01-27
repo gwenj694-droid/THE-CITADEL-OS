@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GJ GROW & GLOW | THE IMPERIUM OS</title>
+    <title>GJ GROW & GLOW | THE SOVEREIGN IMPERIUM</title>
     
     <!-- Premium Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;600;900&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
             --black: #050505;
             --imperial-red: #E60000;
             --royal-gold: #D4AF37;
-            --luminous-gold: #ffdf00;
+            --luminous-gold: #FFD700;
             --silk-white: #fdfaf5;
         }
 
@@ -32,15 +32,7 @@
             background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
         }
 
-        /* --- LUMINOUS SPARKLES --- */
-        .sparkle-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 5;
-            opacity: 0.4; animation: sparkleDrift 30s linear infinite;
-        }
-        @keyframes sparkleDrift { from { background-position: 0 0; } to { background-position: 1000px 1000px; } }
-
-        /* --- THE WOW ENTRY GATE --- */
+        /* --- THE WOW ENTRY GATE (LOCKED) --- */
         #gate { 
             height: 100vh; width: 100%; display: flex; flex-direction: column; 
             justify-content: center; align-items: center; 
@@ -53,70 +45,80 @@
             animation: rotateGate 4s linear infinite; opacity: 0.2; z-index: 1;
         }
         .gate-content { z-index: 10; position: relative; padding: 20px; width: 100%; }
-        .gate-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 10vw, 4.5rem); color: var(--royal-gold); text-transform: uppercase; letter-spacing: 12px; text-shadow: 0 0 20px var(--royal-gold); margin: 0; }
-        .code-input { background: none; border: none; border-bottom: 2px solid var(--royal-gold); color: #fff; padding: 12px; text-align: center; font-size: 1.6rem; width: 280px; outline: none; margin: 40px 0; letter-spacing: 10px; font-family: serif; }
-        .btn-auth { border: 2px solid var(--imperial-red); color: var(--imperial-red); padding: 15px 45px; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; background: none; transition: 0.5s; font-weight: 700; font-size: 0.9rem; }
-        .btn-auth:hover { background: var(--imperial-red); color: white; }
+        .gate-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 10vw, 5rem); color: var(--royal-gold); text-transform: uppercase; letter-spacing: 15px; text-shadow: 0 0 30px var(--royal-gold); margin: 0; }
+        .code-input { background: none; border: none; border-bottom: 2px solid var(--royal-gold); color: #fff; padding: 12px; text-align: center; font-size: 1.8rem; width: 280px; outline: none; margin: 40px 0; letter-spacing: 10px; font-family: serif; }
+        .btn-auth { border: 2px solid var(--imperial-red); color: var(--imperial-red); padding: 15px 45px; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; background: none; transition: 0.5s; font-weight: 700; font-size: 1rem; }
+        .btn-auth:hover { background: var(--imperial-red); color: white; box-shadow: 0 0 40px var(--imperial-red); }
+
+        /* --- SPARKLING DUST LAYER --- */
+        .sparkle-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; opacity: 0.3; animation: sparkleDrift 30s linear infinite; }
+        @keyframes sparkleDrift { from { background-position: 0 0; } to { background-position: 1000px 1000px; } }
 
         /* --- DASHBOARD UI --- */
         #dashboard { display: none; width: 100%; position: relative; z-index: 10; }
         .os-header { background: var(--black); padding: 50px 15px; text-align: center; border-bottom: 5px solid var(--royal-gold); }
-        .os-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 5vw, 2.2rem); text-transform: uppercase; letter-spacing: 6px; color: #fff; margin: 0; }
-        .os-header span { font-family: 'Great Vibes', cursive; color: var(--royal-gold); font-size: clamp(1.8rem, 5vw, 2.2rem); display: block; }
+        .os-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 5vw, 2.5rem); text-transform: uppercase; letter-spacing: 8px; color: #fff; margin: 0; text-shadow: 0 0 10px var(--royal-gold); }
+        .os-header span { font-family: 'Great Vibes', cursive; color: var(--royal-gold); font-size: clamp(1.8rem, 5vw, 2.5rem); display: block; margin-top: 5px; }
 
         .container { width: 100%; max-width: 1300px; margin: auto; padding: 40px 15px; }
 
-        /* --- SECTION BOXES --- */
-        .section-box { padding: 80px 0; border-bottom: 1px solid #eee; width: 100%; }
-        .section-header { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 3rem); color: var(--royal-gold); text-align: center; margin: 100px 0 50px; text-transform: uppercase; letter-spacing: 6px; border-bottom: 2px solid var(--royal-gold); display: inline-block; padding-bottom: 5px; }
+        /* --- GLOWING EDITORIAL TITLES --- */
+        .shimmer-text {
+            font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 3.5rem);
+            text-align: center; margin: 100px 0 50px; text-transform: uppercase; letter-spacing: 8px;
+            background: linear-gradient(to right, #8b0000 20%, var(--imperial-red) 40%, var(--imperial-red) 60%, #8b0000 80%);
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shimmerEffect 3s linear infinite; text-shadow: 0 0 10px rgba(230, 0, 0, 0.1);
+        }
+        @keyframes shimmerEffect { to { background-position: 200% center; } }
 
-        /* --- MODULE GRID --- */
-        .module-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        /* --- INDUSTRIAL GRID --- */
+        .module-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin-bottom: 100px; }
         
-        .module-card { perspective: 1500px; height: 550px; width: 100%; }
-        .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer; }
+        .module-card { perspective: 1500px; height: 520px; width: 100%; }
+        .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-style: preserve-3d; cursor: pointer; }
         .module-card:hover .card-inner, .module-card:active .card-inner { transform: rotateY(180deg); }
         
         .card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: white; border: 1px solid #ddd; padding: 15px; border-radius: 4px; overflow: hidden; }
-        .card-front { border-top: 5px solid var(--royal-gold); display: flex; flex-direction: column; }
-        .card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-top: 15px; text-transform: uppercase; color: var(--black); letter-spacing: 2px; text-align: center;}
-        
-        .img-wrap { width: 100%; height: 70%; overflow: hidden; border: 1px solid #eee; }
+        .card-front { border-top: 6px solid var(--royal-gold); display: flex; flex-direction: column; }
+        .img-wrap { width: 100%; height: 75%; overflow: hidden; border: 1px solid #eee; }
         .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin: auto; text-transform: uppercase; color: var(--black); letter-spacing: 2px; }
 
-        .card-back { transform: rotateY(180deg); text-align: left; padding: 20px; border-top: 5px solid var(--imperial-red); display: flex; flex-direction: column; overflow-y: auto; }
-        .card-back h4 { font-family: 'Playfair Display', serif; color: #8B0000; font-size: 1.2rem; margin: 10px 0; text-transform: uppercase; border-bottom: 1px solid #f0f0f0; }
-        .card-back p { font-size: 0.8rem; line-height: 1.4; color: #555; margin-bottom: 15px; }
+        .card-back { transform: rotateY(180deg); text-align: left; padding: 25px; border-top: 6px solid var(--imperial-red); display: flex; flex-direction: column; justify-content: center; overflow-y: auto;}
+        .card-back h4 { font-family: 'Playfair Display', serif; color: #8B0000; font-size: 1.3rem; margin: 0 0 10px; text-transform: uppercase; border-bottom: 1px solid #f0f0f0; }
+        .card-back p { font-size: 0.85rem; line-height: 1.4; color: #444; margin-bottom: 15px; }
 
-        /* BUTTONS */
-        .btn-act { display: block; text-align: center; padding: 10px; text-decoration: none; text-transform: uppercase; font-size: 0.65rem; font-weight: 900; letter-spacing: 1px; transition: 0.3s; margin-top: 5px; }
+        .btn-act { display: block; text-align: center; padding: 10px; text-decoration: none; text-transform: uppercase; font-size: 0.65rem; font-weight: 900; letter-spacing: 1px; transition: 0.4s; margin-top: 5px; }
         .btn-red { background: var(--imperial-red); color: white; border: none; }
-        .btn-black { background: var(--black); color: var(--royal-gold); border: 1px solid var(--royal-gold); }
         .btn-gold { background: var(--royal-gold); color: white; border: none; }
 
-        /* --- OTHER GRIDS --- */
-        .small-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-bottom: 50px; }
-        .small-card { background: white; padding: 20px; border: 1px solid #eee; border-left: 4px solid var(--royal-gold); transition: 0.3s; }
-        .small-card:hover { border-color: var(--imperial-red); transform: translateY(-5px); }
-        .small-card h5 { margin: 0 0 10px 0; color: #000; text-transform: uppercase; font-size: 0.9rem; }
-        .small-card a { color: var(--imperial-red); text-decoration: none; font-size: 0.75rem; font-weight: bold; letter-spacing: 1px; }
+        .video-container { width: 100%; max-width: 850px; margin: 40px auto; border: 4px double var(--royal-gold); padding: 8px; background: #000; box-shadow: 0 0 30px rgba(212,175,55,0.3); }
 
-        .footer-os { background: var(--black); color: #444; padding: 60px 20px; text-align: center; border-top: 5px solid var(--royal-gold); }
+        /* --- THE INDUSTRIAL DISPATCH (ACTION HUB) --- */
+        .action-hub { background: var(--black); padding: 100px 20px; border-top: 8px solid var(--royal-gold); text-align: center; }
+        .glow-btn {
+            display: inline-block; padding: 22px 45px; margin: 15px;
+            background: none; border: 2px solid var(--royal-gold); color: var(--royal-gold);
+            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 4px; text-decoration: none;
+            transition: 0.5s; box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        .glow-btn:hover { background: var(--royal-gold); color: #000; box-shadow: 0 0 50px var(--royal-gold); }
 
         @keyframes rotateGate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @media (max-width: 768px) { .module-grid { grid-template-columns: 1fr; } .module-card { height: 420px; } }
     </style>
 </head>
 <body>
 
     <div class="sparkle-container"></div>
 
-    <!-- GATE -->
+    <!-- ENTRY GATE -->
     <div id="gate">
         <div class="gate-glow"></div>
         <div class="gate-content">
             <h1 class="gate-title">Signature 7</h1>
-            <p style="color:var(--imperial-red); letter-spacing:5px; font-size:0.8rem; font-weight:900; margin-top: 20px;">ACCESS ENCRYPTED</p>
+            <p style="color:var(--imperial-red); letter-spacing:8px; font-size:0.8rem; font-weight:900; margin-top: 20px;">THE SOVEREIGN IMPERIUM</p>
             <input type="text" id="accessCode" class="code-input" placeholder="PASSKEY" onkeydown="if(event.key==='Enter') unlock()">
             <br>
             <button class="btn-auth" onclick="unlock()">Authenticate</button>
@@ -132,141 +134,107 @@
 
         <div class="container">
             
-            <!-- WELCOME -->
-            <section class="section-box" style="text-align: center;">
+            <!-- WELCOME & VIDEO -->
+            <section style="text-align: center; padding: 60px 0;">
                 <h2 style="font-family: 'Playfair Display'; font-size: 2.2rem; color: var(--imperial-red); text-transform: uppercase;">✨ Welcome Architect ✨</h2>
-                <div class="img-wrap" style="max-width: 500px; margin: 30px auto; border: 1px solid var(--royal-gold);">
-                    <img src="https://i.postimg.cc/wTxtRNmZ/skool-jan26.jpg" alt="Imperium Welcome">
-                </div>
-                <p style="max-width: 800px; font-size: 1.1rem; line-height: 1.8; margin: 0 auto; color: #444;">
-                    Congratulations, Architect. You have just entered the space where luxury branding meets industrial automation. 
-                    I am Gwen, and I created this Imperium to provide you with the tools and confidence to build an iconic brand.
-                </p>
+                <p style="max-width: 800px; margin: 20px auto; color: #444; font-size: 1.1rem; line-height: 1.8;">Congratulations, you have entered the only space where branding meets automation. You are here to command your market.</p>
                 
-                <div style="margin-top: 40px; border: 4px double var(--royal-gold); padding: 5px; background: #000; max-width: 800px; margin-left:auto; margin-right:auto;">
+                <div class="video-container" data-aos="zoom-in">
                     <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/536837ecd5cb463ca593c983deea8bb1?hide_owner=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
                 </div>
             </section>
 
-            <!-- THE 7 SIGNATURES -->
-            <center><h2 class="section-header">The 7 Signature Pillars</h2></center>
+            <!-- THE 7 PILLARS -->
+            <h2 class="shimmer-text" data-aos="fade-up">The 7 Signature Pillars</h2>
             <div class="module-grid">
                 
-                <!-- Pillar 1 -->
+                <!-- S1 -->
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <div class="img-wrap"><img src="https://i.postimg.cc/rz6tW1mb/skool-jan26.jpg"></div>
-                            <h3>01. Clarity Core</h3>
-                        </div>
+                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/rz6tW1mb/skool-jan26.jpg"></div><h3>01. Clarity Core</h3></div>
                         <div class="card-back">
-                            <h4>Clarity Core</h4>
-                            <p>Resolves niche confusion. Architect an unmistakable brand frequency.</p>
-                            <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" class="btn-act btn-gold">Download Workbook</a>
-                            <a href="https://www.canva.com/design/DAGwKW1nygc/hqIGNGpD1PIViDGtaF1Igg/edit" target="_blank" class="btn-act btn-gold">Resource Doc</a>
-                            <a href="https://signature-one-clarity-code-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch S1 SaaS</a>
+                            <h4>The Resolution</h4><p>Architect an unmistakable brand frequency.</p>
+                            <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" class="btn-act btn-gold">Workbook</a>
+                            <a href="https://www.canva.com/design/DAGwKW1nygc/hqIGNGpD1PIViDGtaF1Igg/edit" target="_blank" class="btn-act btn-gold">Resources</a>
+                            <a href="https://signature-one-clarity-code-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch SaaS</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pillar 2 -->
+                <!-- S2 -->
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <div class="img-wrap"><img src="https://i.postimg.cc/gc7ymRzb/skool-jan26.jpg"></div>
-                            <h3>02. Content Vault</h3>
-                        </div>
+                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/gc7ymRzb/skool-jan26.jpg"></div><h3>02. Content Vault</h3></div>
                         <div class="card-back">
-                            <h4>Content Vault</h4>
-                            <p>Resolves content burnout. Automated production of infinite assets.</p>
-                            <a href="https://www.canva.com/design/DAGxGgX66qg/Xg1FKRGfzEh_U4l9LyzYBQ/edit" target="_blank" class="btn-act btn-gold">Download Workbook</a>
-                            <a href="https://www.canva.com/design/DAGwLRglTPs/N17akyt_OnoX1_2OwXmrFA/edit" target="_blank" class="btn-act btn-gold">Resource Doc</a>
-                            <a href="https://lyra-aesthetic-brand-post-architect-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch Lyra SaaS</a>
+                            <h4>The Resolution</h4><p>Automated asset production on autopilot.</p>
+                            <a href="https://www.canva.com/design/DAGxGgX66qg/Xg1FKRGfzEh_U4l9LyzYBQ/edit" target="_blank" class="btn-act btn-gold">Workbook</a>
+                            <a href="https://www.canva.com/design/DAGwLRglTPs/N17akyt_OnoX1_2OwXmrFA/edit" target="_blank" class="btn-act btn-gold">Resources</a>
+                            <a href="https://lyra-aesthetic-brand-post-architect-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch SaaS</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pillar 3 -->
+                <!-- S3 -->
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <div class="img-wrap"><img src="https://i.postimg.cc/bvYLsh45/skool-jan26.jpg"></div>
-                            <h3>03. Voice Lab</h3>
-                        </div>
+                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/bvYLsh45/skool-jan26.jpg"></div><h3>03. Voice Lab</h3></div>
                         <div class="card-back">
-                            <h4>Voice Lab</h4>
-                            <p>Resolves robotic messaging. Codify your brand DNA at scale.</p>
-                            <a href="https://www.canva.com/design/DAGxGwHm3Wk/WY0DZTngJ-3ZcGrYeln7lw/edit" target="_blank" class="btn-act btn-gold">Download Workbook</a>
-                            <a href="https://www.canva.com/design/DAGwLZUbaZs/wyzO5TvtbA_3xSAxjpOQvQ/edit" target="_blank" class="btn-act btn-gold">Resource Doc</a>
-                            <a href="https://voxia-the-brand-voice-lab-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch Voxia SaaS</a>
+                            <h4>The Resolution</h4><p>Codify your DNA into digital labor.</p>
+                            <a href="https://www.canva.com/design/DAGxGwHm3Wk/WY0DZTngJ-3ZcGrYeln7lw/edit" target="_blank" class="btn-act btn-gold">Workbook</a>
+                            <a href="https://www.canva.com/design/DAGwLZUbaZs/wyzO5TvtbA_3xSAxjpOQvQ/edit" target="_blank" class="btn-act btn-gold">Resources</a>
+                            <a href="https://voxia-the-brand-voice-lab-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch SaaS</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pillar 4 -->
+                <!-- S4 -->
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <div class="img-wrap"><img src="https://i.postimg.cc/dVwjxFQq/skool-jan26.jpg"></div>
-                            <h3>04. Proof Builder</h3>
-                        </div>
+                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/dVwjxFQq/skool-jan26.jpg"></div><h3>04. Proof Builder</h3></div>
                         <div class="card-back">
-                            <h4>Proof Builder</h4>
-                            <p>Resolves authority gaps. Build a fortress of systematic social proof.</p>
-                            <a href="https://www.canva.com/design/DAGxHLvyoTc/rfwnGo1NjGUL_7GZG2cKGA/edit" target="_blank" class="btn-act btn-gold">Download Workbook</a>
-                            <a href="https://www.canva.com/design/DAGwLpjLxNM/1b8oNfHGh0j32zxxtfqxSg/edit" target="_blank" class="btn-act btn-gold">Resource Doc</a>
-                            <a href="https://valora-the-visual-proof-builder-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch Valora SaaS</a>
+                            <h4>The Resolution</h4><p>Build a systematic fortress of trust.</p>
+                            <a href="https://www.canva.com/design/DAGxHLvyoTc/rfwnGo1NjGUL_7GZG2cKGA/edit" target="_blank" class="btn-act btn-gold">Workbook</a>
+                            <a href="https://www.canva.com/design/DAGwLpjLxNM/1b8oNfHGh0j32zxxtfqxSg/edit" target="_blank" class="btn-act btn-gold">Resources</a>
+                            <a href="https://valora-the-visual-proof-builder-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch SaaS</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pillar 5 -->
+                <!-- S5 -->
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <div class="img-wrap"><img src="https://i.postimg.cc/Nf71Tn6z/skool-jan26.jpg"></div>
-                            <h3>05. Convertorium</h3>
-                        </div>
+                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/Nf71Tn6z/skool-jan26.jpg"></div><h3>05. Convertorium</h3></div>
                         <div class="card-back">
-                            <h4>Convertorium</h4>
-                            <p>Resolves manual sales. A sovereign engine where clients enroll themselves.</p>
-                            <a href="https://www.canva.com/design/DAGxGwHm3Wk/WY0DZTngJ-3ZcGrYeln7lw/edit" target="_blank" class="btn-act btn-gold">Download Workbook</a>
-                            <a href="https://www.canva.com/design/DAGwOnP0SJE/doxEzkuh6bauf7pc_S4Rnw/edit" target="_blank" class="btn-act btn-gold">Resource Doc</a>
-                            <a href="https://signature-five-siren-the-convertor-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch Siren SaaS</a>
+                            <h4>The Resolution</h4><p>Sovereign enrollment engines that sell for you.</p>
+                            <a href="https://www.canva.com/design/DAGxGwHm3Wk/WY0DZTngJ-3ZcGrYeln7lw/edit" target="_blank" class="btn-act btn-gold">Workbook</a>
+                            <a href="https://www.canva.com/design/DAGwOnP0SJE/doxEzkuh6bauf7pc_S4Rnw/edit" target="_blank" class="btn-act btn-gold">Resources</a>
+                            <a href="https://signature-five-siren-the-convertor-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch SaaS</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pillar 6 -->
+                <!-- S6 -->
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <div class="img-wrap"><img src="https://i.postimg.cc/T1vD5jpK/skool-jan26.jpg"></div>
-                            <h3>06. Rhythm OS</h3>
-                        </div>
+                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/T1vD5jpK/skool-jan26.jpg"></div><h3>06. Rhythm OS</h3></div>
                         <div class="card-back">
-                            <h4>Rhythm OS</h4>
-                            <p>Resolves fragmented operations. Automated workflows for total freedom.</p>
-                            <a href="https://www.canva.com/design/DAGxMuPxnEs/P_Lqj7E5t6eszkJ29JzktQ/edit" target="_blank" class="btn-act btn-gold">Download Workbook</a>
-                            <a href="https://www.canva.com/design/DAGwOhBQyO8/0Fz_YhZ6SzCirmSDhqwTqg/edit" target="_blank" class="btn-act btn-gold">Resource Doc</a>
-                            <a href="https://syngia-the-rhythm-os-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch Syngia SaaS</a>
+                            <h4>The Resolution</h4><p>Habituated automation for infinite scale.</p>
+                            <a href="https://www.canva.com/design/DAGxMuPxnEs/P_Lqj7E5t6eszkJ29JzktQ/edit" target="_blank" class="btn-act btn-gold">Workbook</a>
+                            <a href="https://www.canva.com/design/DAGwOhBQyO8/0Fz_YhZ6SzCirmSDhqwTqg/edit" target="_blank" class="btn-act btn-gold">Resources</a>
+                            <a href="https://syngia-the-rhythm-os-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch SaaS</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pillar 7 -->
+                <!-- S7 -->
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <div class="img-wrap"><img src="https://i.postimg.cc/GmgTxnHs/skool-jan26.jpg"></div>
-                            <h3>07. Mind Space</h3>
-                        </div>
+                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/GmgTxnHs/skool-jan26.jpg"></div><h3>07. Mind Space</h3></div>
                         <div class="card-back">
-                            <h4>Mind Space</h4>
-                            <p>Resolves CEO overwhelm. Mastery over focus and strategic innovation.</p>
-                            <a href="https://www.canva.com/design/DAGxM_w1IEQ/MFGbt7GRwlecGyUb7rjIFw/edit" target="_blank" class="btn-act btn-gold">Download Workbook</a>
-                            <a href="https://www.canva.com/design/DAGwOpgy3Yo/lUEfN0g693hcizo7-tGckA/edit" target="_blank" class="btn-act btn-gold">Resource Doc</a>
-                            <a href="https://mina-the-mindspace-ritual-tool-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch Mina SaaS</a>
+                            <h4>The Resolution</h4><p>Master strategic CEO focus and innovation.</p>
+                            <a href="https://www.canva.com/design/DAGxM_w1IEQ/MFGbt7GRwlecGyUb7rjIFw/edit" target="_blank" class="btn-act btn-gold">Workbook</a>
+                            <a href="https://www.canva.com/design/DAGwOpgy3Yo/lUEfN0g693hcizo7-tGckA/edit" target="_blank" class="btn-act btn-gold">Resources</a>
+                            <a href="https://mina-the-mindspace-ritual-tool-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Launch SaaS</a>
                         </div>
                     </div>
                 </div>
@@ -274,109 +242,55 @@
             </div>
 
             <!-- INDUSTRIAL SUITE -->
-            <center><h2 class="section-header">The Industrial Suite</h2></center>
+            <h2 class="shimmer-text" data-aos="fade-up">The Industrial Suite</h2>
             <div class="module-grid">
-                
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <div class="img-wrap"><img src="https://i.postimg.cc/Kc7KsM18/skool-jan26.jpg"></div>
-                            <h3>Vivara Studio</h3>
-                        </div>
-                        <div class="card-back">
-                            <h4>Vivara Studio</h4>
-                            <p>Elite visual manufacturing. High-end design in seconds.</p>
-                            <a href="https://the-vivara-studio-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-saas">Open Studio</a>
-                            <a href="https://vivara-motionmuse-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-saas">Motion Muse</a>
-                            <a href="https://the-vivara-visual-cta-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">CTA Generator</a>
+                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/Kc7KsM18/skool_jan26.jpg"></div><h3>Vivara Studio</h3></div>
+                        <div class="card-back"><h4>Visual Manufacturing</h4><p>Editorial production in seconds.</p>
+                            <a href="https://the-vivara-studio-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-act btn-red">Open Studio</a>
                         </div>
                     </div>
                 </div>
-
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <div class="img-wrap"><img src="https://i.postimg.cc/pTyzzXWV/skool-jan26.jpg"></div>
-                            <h3>Crystal Pin</h3>
-                        </div>
-                        <div class="card-back">
-                            <h4>Crystal Pin</h4>
-                            <p>Pinterest evergreen traffic engine. Hands-free lead generation.</p>
-                            <a href="https://chatgpt.com/g/g-690e2196119c819189d9be811aa7e60f-crystal-pin" target="_blank" class="btn-act btn-red">Activate Pinterest Node</a>
+                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/pTyzzXWV/skool-jan26.jpg"></div><h3>Crystal Pin</h3></div>
+                        <div class="card-back"><h4>Pinterest Traffic</h4><p>Evergreen lead engine node.</p>
+                            <a href="https://chatgpt.com/g/g-690e2196119c819189d9be811aa7e60f-crystal-pin" target="_blank" class="btn-act btn-red">Activate Node</a>
                         </div>
                     </div>
                 </div>
-
                 <div class="module-card" data-aos="fade-up">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <div class="img-wrap"><img src="https://i.postimg.cc/WphnvwJn/skool-jan26.jpg"></div>
-                            <h3>Faceless Frequency</h3>
-                        </div>
-                        <div class="card-back">
-                            <h4>Stealth Brand</h4>
-                            <p>Master faceless authority. Build dominance behind the scenes.</p>
+                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/WphnvwJn/skool-jan26.jpg"></div><h3>Faceless Frequency</h3></div>
+                        <div class="card-back"><h4>Stealth Dominance</h4><p>Master faceless brand authority.</p>
                             <a href="https://chatgpt.com/g/g-67f85aeaac60819197d4aa4a2651f512-aysha" target="_blank" class="btn-act btn-red">Activate Aysha</a>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <!-- ASSISTANT FLEET -->
-            <center><h2 class="section-header">The Assistant Fleet</h2></center>
-            <div class="small-grid">
-                <div class="small-card"><h5>AI Queen Trio</h5><a href="https://chatgpt.com/g/g-67cece00df9c8191ac3eb3046f6f0070-luna-bo-b-tch-bot" target="_blank">LUNA</a> | <a href="https://chatgpt.com/g/g-67ceed5b2a588191a5a53fa805b1821a-lyra-content-b-tch-bot" target="_blank">LYRA</a> | <a href="https://chatgpt.com/g/g-67ceea6081ac8191bb1ea7eade6a18d2-vega-social-b-tch-bot" target="_blank">VEGA</a></div>
-                <div class="small-card"><h5>Alpha Bots</h5><a href="https://chatgpt.com/g/g-67e0180ceb888191af89c3a12a3c081f-alpha-ai-ragnar" target="_blank">RAGNAR</a> | <a href="https://chatgpt.com/g/g-67dff3050c388191b071a8917f794b6a-alpha-ai-ste" target="_blank">STE</a> | <a href="https://chatgpt.com/g/g-67e00a46d3f081919ae355d8c852ec44-alpha-ai-max" target="_blank">MAX</a></div>
-                <div class="small-card"><h5>Branding Elite</h5><a href="https://chatgpt.com/g/g-67ec1c7e2bfc8191a6ab8ef5b482329e-bella-branding" target="_blank">BELLA</a> | <a href="https://chatgpt.com/g/g-683f50bce1fc8191a5841306e24de3f2-aesthetica" target="_blank">AESTHETICA</a></div>
-                <div class="small-card"><h5>Studio Support</h5><a href="https://chatgpt.com/g/g-67f28133651081918e96c5fb05ef2323-sasha-the-insta-boss-bot" target="_blank">SASHA</a> | <a href="https://chatgpt.com/g/g-67e3e95bb71c8191ac2a7c8713332762-vivienne-von-slay-bo-b-tch-glam-mar" target="_blank">VIVIENNE</a></div>
-            </div>
-
-            <!-- IMAGE VAULTS -->
-            <center><h2 class="section-header">The Image Vaults</h2></center>
-            <div class="small-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));">
-                <div class="small-card"><a href="https://www.canva.com/design/DAG2KEm0Gjc/IqJ8eOhLFbqJ6vLI1LlMyw/edit" target="_blank">VAULT 01</a></div>
-                <div class="small-card"><a href="https://www.canva.com/design/DAG2FVjqrrE/r81Xz5QsYkkOBmeWMAX38g/edit" target="_blank">VAULT 02</a></div>
-                <div class="small-card"><a href="https://www.canva.com/design/DAG2FgRFjn8/BKd8jkBgHcLL21bUQcepRQ/edit" target="_blank">VAULT 03</a></div>
-                <div class="small-card"><a href="https://www.canva.com/design/DAG2Fq4a5qA/CCFUAh8GtL2wU1BW1UDQBw/edit" target="_blank">VAULT 04</a></div>
-                <div class="small-card"><a href="https://www.canva.com/design/DAG07EuVIHY/2d7R9alkylCvovmuaLzWhQ/edit" target="_blank">VAULT 05</a></div>
-                <div class="small-card"><a href="https://www.canva.com/design/DAGzBjI6UkA/F3k5kEIwR4HyIAjlwuXP3Q/edit" target="_blank">VAULT 06</a></div>
+            <!-- BOT SECTORS -->
+            <h2 class="shimmer-text" data-aos="fade-up">AI Workforce & Assist</h2>
+            <div class="module-grid">
+                <div class="module-card"><div class="card-inner"><div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/fbHsF3LK/skool_jan26.jpg"></div><h3>Boss Bots</h3></div><div class="card-back"><h4>The Queen Trio</h4><p>Luna, Vega, and Lyra.</p><a href="https://chatgpt.com/g/g-67cece00df9c8191ac3eb3046f6f0070-luna-bo-b-tch-bot" target="_blank" class="btn-act btn-red">Deploy Force</a></div></div></div>
+                <div class="module-card"><div class="card-inner"><div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/SxDHQBhn/skool_jan26.jpg"></div><h3>Alpha Bots</h3></div><div class="card-back"><h4>Tactical Precision</h4><p>Ragnar, Ste, Max.</p><a href="https://chatgpt.com/g/g-67e0180ceb888191af89c3a12a3c081f-alpha-ai-ragnar" target="_blank" class="btn-act btn-red">Deploy Force</a></div></div></div>
             </div>
 
         </div>
 
-        <!-- INDUSTRIAL DISPATCH -->
-        <section class="section-box" style="background:#000; text-align:center; padding:100px 20px; border-top:10px solid var(--royal-gold);">
+        <!-- ACTION HUB -->
+        <section class="action-hub">
             <h2 style="color:#fff; letter-spacing:10px; font-family: 'Playfair Display';">THE INDUSTRIAL DISPATCH</h2>
             <p style="color:var(--royal-gold); margin-bottom:50px;">COMMAND THE LABOR FORCE BELOW</p>
-            <a href="https://gwenj694-droid.github.io/axiom.html/" target="_blank" class="btn-act btn-saas" style="max-width:400px; margin:20px auto; padding:25px; font-size:1rem;">Build My Strategy (Axiom)</a>
-            <a href="https://gwenj694-droid.github.io/argent-sovereign/" target="_blank" class="btn-act btn-saas" style="max-width:400px; margin:20px auto; padding:25px; font-size:1rem;">Dispatch My Assets (Argent)</a>
-            <a href="https://gwenj694-droid.github.io/citadel/" target="_blank" class="btn-act btn-red" style="max-width:400px; margin:20px auto; padding:25px; font-size:1rem;">Open The Citadel</a>
+            <a href="https://gwenj694-droid.github.io/axiom.html/" target="_blank" class="glow-btn">Build Strategy (Axiom)</a>
+            <a href="https://gwenj694-droid.github.io/argent-sovereign/" target="_blank" class="glow-btn">Dispatch Assets (Argent)</a>
+            
+            <div style="color:var(--luminous-gold); margin-top:80px; letter-spacing:10px; font-weight:900;">JOIN OUR MOVEMENT TODAY</div>
         </section>
 
-        <!-- ELITE LOCKED -->
-        <section class="section-box" style="background:var(--silk-white); text-align:center; padding:100px 20px;">
-            <h2 style="color:var(--imperial-red); letter-spacing:5px;">ELITE ARCHITECT ACCESS</h2>
-            <p style="color:#555; margin-bottom:50px;">Requires Private Key Activation</p>
-            <div class="module-grid" style="max-width:900px; margin:auto;">
-                <div class="module-card">
-                    <div class="card-inner">
-                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/Hx9p3b6c/skool-jan26.jpg"></div><h3>Hybrid Creators</h3></div>
-                        <div class="card-back"><h4>Live Chat Build</h4><p>Elite 1:1 Live sessions with the hybrid workforce.</p><a href="https://bossupwithgj.store/shop/241db709-d4cb-434b-84c8-5fe675675dd5" target="_blank" class="btn-act btn-red">Request Access</a></div>
-                    </div>
-                </div>
-                <div class="module-card">
-                    <div class="card-inner">
-                        <div class="card-front"><div class="img-wrap"><img src="https://i.postimg.cc/mDK7TfYf/skool-jan26.jpg"></div><h3>SIG7 Elite</h3></div>
-                        <div class="card-back"><h4>Hands-Free Empire</h4><p>The ultimate automation tier. 5 Mins Talk, Full PDF Build.</p><a href="https://bossupwithgj.store/shop/241db709-d4cb-434b-84c8-5fe675675dd5" target="_blank" class="btn-act btn-red">Request Access</a></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="footer-os">
-            <p>&copy; 2026 GJ GROW & GLOW | SIGNATURE 7™ THE SOVEREIGN IMPERIUM</p>
-            <p style="font-size:0.7rem; color:#222; margin-top:10px;">Signature 7 is an Industrial AI Infrastructure. We provide the machine; you provide the vision. Access Denied to No One.</p>
+        <footer style="text-align:center; padding:60px; background:#000; color:#444; font-size:0.7rem; letter-spacing:3px;">
+            &copy; 2026 GJ GROW & GLOW | SIGNATURE 7™ THE SOVEREIGN IMPERIUM
         </footer>
     </div>
 
@@ -389,7 +303,7 @@
                 document.getElementById('dashboard').style.display = 'block';
                 window.scrollTo(0,0);
                 AOS.init({ duration: 800, once: true });
-            } else { alert("ACCESS DENIED."); }
+            } else { alert("ACCESS DENIED."); document.getElementById('accessCode').value = ""; }
         }
     </script>
 </body>
