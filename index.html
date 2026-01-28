@@ -92,4 +92,292 @@
         /* TRIPLE BUTTONS */
         .btn-triple { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 15px; }
         .btn-node { text-align: center; padding: 12px 5px; text-decoration: none; text-transform: uppercase; font-size: 0.6rem; font-weight: 900; letter-spacing: 1px; transition: 0.3s; border: 1px solid var(--royal-gold); color: var(--royal-gold); }
-        .btn-node:hover { backgr
+        .btn-node:hover { background: var(--royal-gold); color: #000; }
+
+        /* LIST GRIDS */
+        .list-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; margin-bottom: 100px; }
+        .list-card { background: #080808; border: 1px solid #111; padding: 40px; border-top: 4px solid var(--royal-gold); transition: 0.4s; }
+        .list-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(212, 175, 55, 0.1); }
+        .list-card h5 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0 0 20px; color: #fff; }
+        .list-card a { display: block; color: var(--royal-gold); text-decoration: none; font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid #111; padding-bottom: 10px; }
+        .list-card a:hover { color: #fff; border-bottom-color: var(--royal-gold); }
+
+        /* ELITE PROTECTED VAULT */
+        .elite-vault { padding: 150px 0; border-top: 10px solid var(--royal-gold); text-align: center; background: #000; }
+        .elite-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1100px; margin: auto; }
+        .elite-card { border: 1px solid var(--royal-gold); padding: 25px; position: relative; }
+        .elite-card img { width: 100%; height: 450px; object-fit: cover; border: 1px solid #222; margin-bottom: 30px; filter: grayscale(100%); transition: 1s; }
+        .elite-card:hover img { filter: grayscale(0%); }
+        .elite-card h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--royal-gold); margin: 0 0 20px; }
+        .price-badge { background: var(--royal-gold); color: #000; padding: 5px 15px; font-weight: 900; font-size: 0.8rem; letter-spacing: 2px; position: absolute; top: 40px; right: 40px; }
+        .btn-elite { display: inline-block; padding: 20px 60px; background: none; border: 1px solid var(--royal-gold); color: var(--royal-gold); text-decoration: none; font-weight: 900; letter-spacing: 5px; text-transform: uppercase; cursor: pointer; transition: 0.5s; font-size: 1rem; border: none; }
+        .btn-elite:hover { background: var(--royal-gold); color: #000; box-shadow: 0 0 50px rgba(212, 175, 55, 0.4); }
+
+        /* FOOTER DISPATCH */
+        .dispatch { padding: 150px 20px; text-align: center; border-top: 1px solid #222; }
+        .glow-trigger { display: inline-block; padding: 25px 60px; margin: 15px; border: 1px solid var(--white); color: var(--white); text-decoration: none; text-transform: uppercase; letter-spacing: 5px; font-weight: 900; transition: 0.5s; font-size: 1.1rem; }
+        .glow-trigger:hover { background: var(--white); color: #000; }
+
+        @keyframes rotateGate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @media (max-width: 768px) { .module-grid, .list-grid, .elite-grid { grid-template-columns: 1fr; } .palace-header h1 { font-size: 4rem; letter-spacing: -2px; } .btn-triple { grid-template-columns: 1fr; } .module-card { height: 400px; } }
+    </style>
+</head>
+<body>
+
+    <div id="sparkles"></div>
+
+    <!-- ENTRY GATE -->
+    <div id="gate">
+        <div class="gate-glow"></div>
+        <div class="gate-content">
+            <h1 class="gate-title"><span>Signature 7</span>Imperium</h1>
+            <input type="text" id="accessCode" class="code-input" placeholder="PASSKEY" onkeydown="if(event.key==='Enter') unlock()">
+            <br>
+            <button class="btn-auth" onclick="unlock()">Authenticate Entry</button>
+        </div>
+    </div>
+
+    <!-- MAIN OS -->
+    <div id="dashboard">
+        <div class="container">
+            
+            <header class="palace-header">
+                <h1 data-aos="fade-right"><span>Signature 7</span>Imperium</h1>
+                <div class="os-tag">THE INDUSTRIAL OPERATING SYSTEM // 2026 EDITION</div>
+            </header>
+
+            <!-- VIDEO -->
+            <div class="video-box" data-aos="zoom-in">
+                <iframe src="https://www.loom.com/embed/536837ecd5cb463ca593c983deea8bb1?hide_owner=true" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <!-- 01: SIGNATURE PILLARS (3 BUTTONS) -->
+            <h2 class="section-header">01. Signature Pillars</h2>
+            <div class="module-grid">
+                
+                <div class="module-card" data-aos="fade-up">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="https://i.postimg.cc/rz6tW1mb/skool-jan26.jpg"><h3>01. Clarity Core</h3></div>
+                        <div class="card-back">
+                            <h4>Signature 1</h4><p>Architect brand frequency. Resolve positioning noise.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxGMFsMes/0P03p3h845WEqjhnXxkEBg/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwKW1nygc/hqIGNGpD1PIViDGtaF1Igg/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://signature-one-clarity-code-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-gold">Launch SaaS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card" data-aos="fade-up">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="https://i.postimg.cc/gc7ymRzb/skool-jan26.jpg"><h3>02. Content Vault</h3></div>
+                        <div class="card-back">
+                            <h4>Signature 2</h4><p>Automated asset production. Resolve content burnout.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxGgX66qg/Xg1FKRGfzEh_U4l9LyzYBQ/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwLRglTPs/N17akyt_OnoX1_2OwXmrFA/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://lyra-aesthetic-brand-post-architect-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-gold">Launch SaaS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card" data-aos="fade-up">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="https://i.postimg.cc/bvYLsh45/skool-jan26.jpg"><h3>03. Voice Lab</h3></div>
+                        <div class="card-back">
+                            <h4>Signature 3</h4><p>Codify DNA frequency. Resolve robotic AI output.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxGwHm3Wk/WY0DZTngJ-3ZcGrYeln7lw/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwLZUbaZs/wyzO5TvtbA_3xSAxjpOQvQ/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://voxia-the-brand-voice-lab-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-gold">Launch SaaS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card" data-aos="fade-up">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="https://i.postimg.cc/dVwjxFQq/skool-jan26.jpg"><h3>04. Proof Builder</h3></div>
+                        <div class="card-back">
+                            <h4>Signature 4</h4><p>Build trust on autopilot. Resolve authority gaps.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxHLvyoTc/rfwnGo1NjGUL_7GZG2cKGA/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwLpjLxNM/1b8oNfHGh0j32zxxtfqxSg/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://valora-the-visual-proof-builder-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-gold">Launch SaaS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card" data-aos="fade-up">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="https://i.postimg.cc/Nf71Tn6z/skool-jan26.jpg"><h3>05. Convertorium</h3></div>
+                        <div class="card-back">
+                            <h4>Signature 5</h4><p>Sovereign enrollment engines. Resolve manual sales.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxGwHm3Wk/WY0DZTngJ-3ZcGrYeln7lw/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwOnP0SJE/doxEzkuh6bauf7pc_S4Rnw/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://signature-five-siren-the-convertor-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-gold">Launch SaaS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card" data-aos="fade-up">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="https://i.postimg.cc/T1vD5jpK/skool-jan26.jpg"><h3>06. Rhythm OS</h3></div>
+                        <div class="card-back">
+                            <h4>Signature 6</h4><p>Automated scale habituation. Resolve fragmented operations.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxMuPxnEs/P_Lqj7E5t6eszkJ29JzktQ/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwOhBQyO8/0Fz_YhZ6SzCirmSDhqwTqg/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://syngia-the-rhythm-os-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-gold">Launch SaaS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card" data-aos="fade-up">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="https://i.postimg.cc/GmgTxnHs/skool-jan26.jpg"><h3>07. Mind Space</h3></div>
+                        <div class="card-back">
+                            <h4>Signature 7</h4><p>CEO focus mastery. Resolve decision fatigue.</p>
+                            <div class="btn-triple">
+                                <a href="https://www.canva.com/design/DAGxM_w1IEQ/MFGbt7GRwlecGyUb7rjIFw/edit" target="_blank" class="btn-node">Workbook</a>
+                                <a href="https://www.canva.com/design/DAGwOpgy3Yo/lUEfN0g693hcizo7-tGckA/edit" target="_blank" class="btn-node">Resources</a>
+                                <a href="https://mina-the-mindspace-ritual-tool-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-gold">Launch SaaS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 02: INDUSTRIAL SUITE -->
+            <h2 class="section-header">02. Industrial Suite</h2>
+            <div class="matrix-grid">
+                <div class="module-card" data-aos="fade-up">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="https://i.postimg.cc/Kc7KsM18/skool_jan26.jpg"><h3>Vivara Studio</h3></div>
+                        <div class="card-back">
+                            <h4>Visual Suite</h4>
+                            <div class="btn-triple">
+                                <a href="https://the-vivara-studio-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node">Studio App</a>
+                                <a href="https://vivara-motionmuse-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node">Motion Muse</a>
+                                <a href="https://the-vivara-visual-cta-generator-sk-136391134718.us-west1.run.app/" target="_blank" class="btn-node btn-gold">CTA Gen</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="module-card" data-aos="fade-up">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="https://i.postimg.cc/pTyzzXWV/skool-jan26.jpg"><h3>Crystal Pin</h3></div>
+                        <div class="card-back"><h4>Pinterest Engine</h4><a href="https://chatgpt.com/g/g-690e2196119c819189d9be811aa7e60f-crystal-pin" target="_blank" class="btn-node btn-gold">Activate Node</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03: ASSISTANT FLEET (INDIVIDUAL) -->
+            <h2 class="section-header">03. The Assistant Fleet</h2>
+            <div class="list-grid">
+                <div class="list-card" data-aos="fade-up">
+                    <img src="https://i.postimg.cc/hGFcB2wD/skool-jan26.jpg">
+                    <h5>AI Studio Assistants</h5>
+                    <a href="https://ai.studio/apps/drive/1bH9WOmmJv28oc6GG1xpq0WppFQta-6Jx?fullscreenApplet=true" target="_blank">Lead Hunter</a>
+                    <a href="https://ai.studio/apps/drive/1k83vACRUquZGqPft8Czgc7KZk00PPRyo?fullscreenApplet=true" target="_blank">Editorial Copy</a>
+                    <a href="https://ai.studio/apps/drive/1N6xNG6fxGUqWZ6IuGgYNJZVzYnj_lcPQ?fullscreenApplet=true" target="_blank">Revenue Architect</a>
+                    <a href="https://ai.studio/apps/drive/1FDx7ffxHRVGTsJq9KhPkglMOT3OuYTJc?fullscreenApplet=true" target="_blank">Offer Optimizer</a>
+                    <a href="https://ai.studio/apps/drive/173ayU-ygJK0sFtaOz2KEY2ed5I5IvGXN?fullscreenApplet=true" target="_blank">System Scaler</a>
+                </div>
+                <div class="list-card" data-aos="fade-up">
+                    <img src="https://i.postimg.cc/Hx9p3b6c/skool-jan26.jpg">
+                    <h5>GPT Specialists</h5>
+                    <a href="https://chatgpt.com/g/g-683f50bce1fc8191a5841306e24de3f2-aesthetica" target="_blank">Aesthetica</a>
+                    <a href="https://chatgpt.com/g/g-67ec1c7e2bfc8191a6ab8ef5b482329e-bella-branding" target="_blank">Bella</a>
+                    <a href="https://chatgpt.com/g/g-680930365b5081919a48acbc39f6cbcb-foxy-roxy" target="_blank">Foxy Roxy</a>
+                    <a href="https://chatgpt.com/g/g-67ceed5b2a588191a5a53fa805b1821a-lyra" target="_blank">Lyra</a>
+                    <a href="https://chatgpt.com/g/g-67cece00df9c8191ac3eb3046f6f0070-luna" target="_blank">Luna</a>
+                    <a href="https://chatgpt.com/g/g-67ceea6081ac8191bb1ea7eade6a18d2-vega" target="_blank">Vega</a>
+                </div>
+            </div>
+
+            <!-- INTROS -->
+            <div class="list-grid">
+                <div class="list-card" style="border-color:#fff;"><img src="https://i.postimg.cc/fbHsF3LK/skool_jan26.jpg" style="width:100%;"><h5>Queen Trio</h5><p style="color:#666;">Luna, Vega, Lyra.</p></div>
+                <div class="list-card" style="border-color:#fff;"><img src="https://i.postimg.cc/SxDHQBhn/skool_jan26.jpg" style="width:100%;"><h5>Alpha Trio</h5><p style="color:#666;">Ragnar, Ste, Max.</p></div>
+            </div>
+
+            <!-- 04: IMAGE VAULTS -->
+            <h2 class="section-header">04. Image Vaults</h2>
+            <div class="list-grid">
+                <div class="list-card"><h5>Luxury & Crystal</h5>
+                    <a href="https://www.canva.com/design/DAG2KEm0Gjc/IqJ8eOhLFbqJ6vLI1LlMyw/edit" target="_blank">Vault 01</a>
+                    <a href="https://www.canva.com/design/DAG2FVjqrrE/r81Xz5QsYkkOBmeWMAX38g/edit" target="_blank">Vault 02</a>
+                </div>
+                <div class="list-card"><h5>Obsidian & Glow</h5>
+                    <a href="https://www.canva.com/design/DAG0HvJpEls/08icUgoIQeIyMYjG_OMHsQ/edit" target="_blank">Vault 03</a>
+                    <a href="https://www.canva.com/design/DAG07EuVIHY/2d7R9alkylCvovmuaLzWhQ/edit" target="_blank">Vault 04</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ELITE VAULT (PROTECTED) -->
+        <section class="elite-vault">
+            <h2 data-aos="fade-up" style="color:var(--white); font-family: 'Playfair Display'; font-size: 5rem; letter-spacing: -3px;">Elite Infrastructure</h2>
+            <p style="color:var(--royal-gold); margin-bottom: 80px; letter-spacing: 5px; font-weight: 700;">AUTHORIZATION REQUIRED // PROTECTED NODES</p>
+            
+            <div class="elite-grid">
+                <div class="elite-card" data-aos="fade-up">
+                    <div class="price-badge">£69</div>
+                    <img src="https://i.postimg.cc/bwLbs2x9/skool-jan26.jpg">
+                    <h3>Hybrid Chat</h3>
+                    <button class="elite-btn" onclick="secureEntry('HYBRID')">Activate Node</button>
+                </div>
+                <div class="elite-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="price-badge">£111</div>
+                    <img src="https://i.postimg.cc/25hq6K6J/skool-jan26.jpg">
+                    <h3>SIG 7 Flagship</h3>
+                    <button class="elite-btn" onclick="secureEntry('SIG7')">Activate Node</button>
+                </div>
+            </div>
+
+            <div style="color:var(--royal-gold); margin-top:100px; letter-spacing:10px; font-weight:900; font-size:1.5rem; text-shadow: 0 0 20px var(--royal-gold);">JOIN THE MOVEMENT TODAY</div>
+        </section>
+
+        <!-- DISPATCH -->
+        <div class="dispatch">
+            <a href="https://gwenj694-droid.github.io/axiom.html/" target="_blank" class="glow-trigger">Axiom Node</a>
+            <a href="https://gwenj694-droid.github.io/argent-sovereign/" target="_blank" class="glow-trigger">Argent Engine</a>
+            <a href="https://gwenj694-droid.github.io/citadel/" target="_blank" class="glow-trigger">Secure Citadel</a>
+            <a href="https://gwenj694-droid.github.io/sovereign-empire/" target="_blank" class="glow-trigger">Sovereign Empire</a>
+        </div>
+
+        <footer style="text-align:center; padding:100px 0; color:#222; letter-spacing:5px; font-size:0.6rem; background:#000;">
+            &copy; 2026 GJ GROW & GLOW | SIGNATURE 7
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: true });
+        function unlock() {
+            var val = document.getElementById('accessCode').value.trim();
+            if(val.toUpperCase() === "GLOW777") {
+                document.getElementById('gate').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                window.scrollTo(0,0);
+            } else { alert("ACCESS DENIED."); }
+        }
+        function secureEntry(type) {
+            var pass = prompt("ENTER ELITE KEY:");
+            if(pass && pass.toUpperCase() === "IMPERIAL") {
+                if(type === 'SIG7') window.open("https://gwenj694-droid.github.io/signature7-boss/", "_blank");
+                if(type === 'HYBRID') window.open("https://studio.d-id.com/agents/share?id=v2_agt_0G60tK3J...", "_blank");
+            } else { alert("UNAUTHORIZED."); }
+        }
+    </script>
+</body>
+</html>
