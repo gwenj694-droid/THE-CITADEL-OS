@@ -311,8 +311,9 @@
                         <div class="card-front"><img src="https://i.postimg.cc/y8bjKg2z/skool-jan26.jpg"><div class="glow-label"><h3>S7 Unstoppable</h3></div></div>
                         <div class="card-back">
                             <h4>Momentum Engine</h4><p>The unstoppable force protocol. Resolve resistance.</p>
-                            <div class="btn-triple" style="grid-template-columns: 1fr;">
-                                <a href="https://s7-unstoppable-136391134718.us-west1.run.app" target="_blank" class="btn-node" style="padding:15px; font-size:0.9rem;">Launch System</a>
+                            <div class="btn-triple" style="grid-template-columns: 1fr 1fr;">
+                                <a href="https://s7-unstoppable-136391134718.us-west1.run.app" target="_blank" class="btn-node">Launch System</a>
+                                <a href="https://www.loom.com/share/99ad48561e8d45d1b93e0fa5406731f4" target="_blank" class="btn-node">Watch Demo</a>
                             </div>
                         </div>
                     </div>
@@ -411,32 +412,6 @@
 
         </div>
 
-        <!-- ELITE PROTECTED VAULT -->
-        <section class="elite-vault">
-            <h2 data-aos="fade-up" style="color:white; font-family:'Playfair Display'; font-size:5rem; letter-spacing:-3px;">Elite Infrastructure</h2>
-            <div class="elite-grid">
-                <div class="elite-card" data-aos="fade-right">
-                    <span class="price-tag">£69</span>
-                    <img src="https://i.postimg.cc/bwLbs2x9/skool-jan26.jpg">
-                    <div class="elite-content">
-                        <h3>Hybrid Chat</h3>
-                        <a href="https://bossupwithgj.store/shop/b37c29c8-a60f-423e-9259-8bc260d6d3fc" target="_blank" class="btn-elite-pay">Purchase Entry</a>
-                        <button class="btn-elite-auth" onclick="secureEntry('HYBRID')">Activate Node</button>
-                    </div>
-                </div>
-                <div class="elite-card" data-aos="fade-left">
-                    <span class="price-tag">£111</span>
-                    <img src="https://i.postimg.cc/CL3wFs3M/skool-jan26.jpg">
-                    <div class="elite-content">
-                        <h3>SIG 7 Flagship</h3>
-                        <a href="https://bossupwithgj.store/shop/d7fefc68-b5ea-4ddb-a8a9-c99d5fe1fc85" target="_blank" class="btn-elite-pay">Purchase Entry</a>
-                        <button class="btn-elite-auth" onclick="secureEntry('SIG7')">Activate Node</button>
-                    </div>
-                </div>
-            </div>
-            <div class="movement">JOIN OUR MOVEMENT TODAY</div>
-        </section>
-
         <!-- DISPATCH HUB (GOLD BUTTONS) -->
         <section class="dispatch">
             <a href="https://gwenj694-droid.github.io/axiom.html/" target="_blank" class="glow-trigger">Axiom Node Activation</a>
@@ -459,6 +434,7 @@
                 document.getElementById('gate').style.display = 'none';
                 document.getElementById('dashboard').style.display = 'block';
                 window.scrollTo(0,0);
+                setTimeout(function(){ AOS.refresh(); }, 500); // FIXED: Forces AOS to see the content
             } else { alert("ACCESS DENIED."); }
         }
         function secureEntry(type) {
